@@ -1,0 +1,30 @@
+# 01_content_log.txt
+负责成员：许双博
+分析主题：内容相似度（Content）
+主要使用的字段：genres, keywords, overview, title
+
+主要思路：
+- 解析 genres 与 keywords 字段，将 JSON 字符串展开为标准词汇列表，保证组件分在同一语义空间下比较。
+- 将标题与简介文本联合构建语料，使用 TF-IDF 范数衡量影片的内容信息量：词项越丰富且越少见，得分越高。
+- 关键词数量代表主题覆盖度；genre 数量体现题材多样性；overview/title 的字数和字符长度衡量描述充分性——这些指标与课堂研讨的“内容完备度”定义一致。
+- 对以上特征先做对数压缩以减弱长尾，再做 0-1 归一化，并按照课程提供的“内容充实 > 关键词覆盖 > 类型多样”的优先级进行加权，故能够将多维信号统一映射到 0-100 的评分区间。
+
+评分范围：0–100（中位数≈50）
+
+代码文件：
+    scripts/01_content_scores.py
+    scripts/content_utils.py
+运行方式：
+    python scripts/01_content_scores.py
+输出文件：
+    reports/tables/01_content_scores.csv
+    data/processed/01_content_features.csv
+生成图表：
+    reports/figures/01_score_distribution.png（整体得分分布）
+    reports/figures/01_genre_score_profile.png（类型平均得分对比）
+    reports/figures/01_keyword_wordcloud.png（高频关键词词云，用于课堂展示）
+    reports/figures/01_keyword_frequency.png（Top15 关键词频次条形图）
+    reports/figures/01_tfidf_vs_score.png（TF-IDF 信号与得分关系散点图）
+运行所需环境：
+    Python 3.12+
+    pip install pandas scikit-learn matplotlib numpy openpyxl wordcloud

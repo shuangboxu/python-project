@@ -1,0 +1,23 @@
+# 03_business_log.txt
+负责成员：武红玮
+分析主题：商业(business)
+主要使用的字段：budget,revenue,production_companies
+
+主要思路：
+- 使用 budget、revenue、production_companies 三列（movie_id、title 仅用于输出与校验）。
+- 票房规模：rev_raw = log1p(revenue)；投资回报：roi_raw = log1p(revenue / (budget + 1))。
+- 对 rev_raw、roi_raw 各自做 1%–99% 分位裁剪后 Min–Max 标准化至 [0,1]。
+- 公司加成：根据出品公司命中常见头部关键词（如 disney/warner/universal/paramount/sony/netflix/amazon/mgm 等），命中≥2 记 1.0，命中=1 记 0.5，否则 0。
+- 合成：component_01 = 0.50*roi + 0.35*rev + 0.15*studio；对缺失项采用“仅用可得项并按剩余权重归一”的策略。
+- 映射与输出：component_score = clip(100*component_01, 0, 100)，保留两位小数，仅输出 movie_id,title,component_score 三列。
+
+评分范围：
+- 0–100，整体均值通常在 35–50；>80 多为高票房且 ROI 高且命中头部公司；0 分常见于预算与票房均为 0 或关键字段缺失较多的影片。
+
+代码文件：scripts/03_business_scores.py
+运行方式：
+    python scripts/03_business_scores.py
+输出文件：
+    reports/tables/03_business_scores.csv
+    reports/tables/03_business_bottom20_preview.csv
+    reports/tables/03_business_top20_preview.csv

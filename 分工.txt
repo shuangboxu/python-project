@@ -1,71 +1,108 @@
 1. 目标（第一阶段）
-•	每人从不同角度独立对同一份数据做分析。
-•	每个人输出一份组件得分表（component scores），格式统一。
-•	第二阶段由合并脚本把所有组件得分统一归一化并按权重合成最终推荐分数，输出 Top-N 推荐列表。
-•	原始数据只读：data/raw/movies.xlsx（不能改或重命名）。
-若做预处理，请把结果放在 data/processed/。
+- 每人从不同角度独立对同一份数据做分析。
+- 每个人输出一份组件得分表（component scores），格式统一。
+- 第二阶段由合并脚本把所有组件得分统一归一化并按权重合成最终推荐分数，输出 Top-N 推荐列表。
+- 第三阶段成果展示：基于第二阶段的结果制作 PPT、网页可视化等交付物。
+- 原始数据只读：data/raw/movies.xlsx（不能改或重命名）。
+- 若做预处理，请把结果放在 data/processed/。
+
 ________________________________________
-2. 四人分工（每人输出一个组件分数 CSV）
-（每人只需负责输出 movie_id,title,component_score 三列）
-01 — Content（内容与相似度）
-•	负责列：genres, keywords, overview, title
-•	目标输出：reports/tables/01_content_scores.csv（列：movie_id,title,component_score）
-•	思路举例：TF-IDF 或关键词权重、genre 相关性、overview 信息量等。
-02 — Ratings & Popularity（评分与受欢迎度）
-•	负责列：vote_average, vote_count, popularity
-•	目标输出：reports/tables/02_rating_scores.csv
-•	思路举例：贝叶斯平均/加权投票数、popularity 合成得分。
-03 — Business（票房/出品/制作方）
-•	负责列：budget, revenue, production_companies
-•	目标输出：reports/tables/03_business_scores.csv
-•	思路举例：ROI、票房规模、知名制片公司加权等。
-04 — Time & Locale（时间/语言/地域/时长）
-•	负责列：release_date, runtime, spoken_languages, original_language
-•	目标输出：reports/tables/04_time_scores.csv
-•	思路举例：新片优先（时间衰减）、语言是否匹配目标用户、时长适配度。
-每人内部实现细节可以自由发挥（可以生成一些图表，第一次弄不需要太复杂），
-但输出格式必须完全一致（见下面第 3 条）。
+2. 四人分工（第一阶段组件）
+
+成员按照编号负责以下组件，并输出规范化 CSV：
+- 成员01（Content）：负责 genres、keywords、overview、title，输出 reports/tables/01_content_scores.csv。
+- 成员02（Ratings & Popularity）：负责 vote_average、vote_count、popularity，输出 reports/tables/02_rating_scores.csv。
+- 成员03（Business）：负责 budget、revenue、production_companies，输出 reports/tables/03_business_scores.csv。
+- 成员04（Time & Locale）：负责 release_date、runtime、spoken_languages、original_language，输出 reports/tables/04_time_scores.csv。
+- 所有 CSV 均需包含且仅包含 movie_id,title,component_score 三列。
+
 ________________________________________
 3. 输出与评分规范（必须严格遵守）
-文件与位置
-•	每人输出文件命名（必须）：
-o	reports/tables/01_content_scores.csv
-o	reports/tables/02_rating_scores.csv
-o	reports/tables/03_business_scores.csv
-o	reports/tables/04_time_scores.csv
-文件内容要求
-每个文件必须包含且仅需这三列（顺序最好相同）：
-movie_id,title,component_score
-•	movie_id：与原数据中唯一标识一致（字符串或数字均可）
-•	title：电影名（便于人工核对）
-•	component_score：分数（数值）
-统一分数尺度与校验（关键）
-•	输出分数可先按你自己的算法产生原始分数。
-•	建议最高分 100，最低分 0（平均值大约在 50 左右为宜）。
-•	第二阶段合并时会自动统一归一化到相同尺度（防止不同人分数区间不一致）。
+
+- 第一阶段输出文件命名：
+  - reports/tables/01_content_scores.csv
+  - reports/tables/02_rating_scores.csv
+  - reports/tables/03_business_scores.csv
+  - reports/tables/04_time_scores.csv
+- 每个文件必须包含且仅需三列（顺序一致）：movie_id,title,component_score。
+- movie_id：与 data/raw/movies.xlsx 中唯一标识一致（字符串或数字均可）。
+- title：电影名（便于人工核对）。
+- component_score：分数（数值，建议范围 0-100，平均值约 50）。
+- 第二阶段合并时会统一归一化到相同尺度（防止不同人分数区间不一致）。
+
 ________________________________________
 4. 每人必须记录的内容（务必执行）
-每个人都要在自己编号对应的脚本文件旁边创建一个简单的记录文件，写明：
-文件位置
-reports/logs/01_content_log.txt   （每个人按编号命名）
-内容模板（复制填好即可）
+
+- 每个人都要在自己编号对应的脚本文件旁边创建记录文件，写明：
+  - 负责成员、分析主题、使用字段、核心思路、评分范围。
+  - 代码文件路径、运行方式、输出文件位置。
+- 记录文件示例：reports/logs/01_content_log.txt
+```
 # 01_content_log.txt
 负责成员：XXX
 分析主题：内容相似度（Content）
 主要使用的字段：genres, keywords, overview, title
 
 主要思路：
-- 对关键词进行分词统计，计算出现频率
+- 对关键词进行分词统计，计算出现频次
 - 对 genre 做独热编码统计，算出 genre 热度得分
 - 对 overview 计算字数和平均词长作为信息量指标
 
-评分范围：0–100（中位数≈50）
+评分范围：0-100（中位数 50 左右）
 
 代码文件：scripts/01_content_scores.py
 运行方式：
     python scripts/01_content_scores.py
 输出文件：
     reports/tables/01_content_scores.csv
-每个人都要记录这份说明文件。
-这样在第二阶段合并时可以追踪来源、解释算法。
+```
+- 所有成员务必维护日志，便于第二阶段合并时追踪来源、解释算法。
 
+________________________________________
+5. 第二阶段：合并与复核（四人协作）
+
+5.1 工作内容
+- 统一加载 data/raw/movies.xlsx 与四份组件得分。
+- 对 component_score 进行归一化（例如 Min-Max、Z-Score），按约定权重计算最终推荐分数。
+- 输出综合推荐结果（建议命名：reports/tables/final_recommendations.csv，列包含 movie_id,title,final_score,source_notes）。
+- 复核缺失值、异常值，记录权重、归一化方法、过滤条件。
+
+5.2 角色分工
+- 成员01（Content）：校验文本相关特征是否完整，补充缺失的 genre 和 keywords 信息说明。
+- 成员02（Ratings & Popularity）：负责归一化方案与权重配置文档，验证分布是否合理。
+- 成员03（Business）：对高权重影片进行票房与 ROI 复核，标注商业亮点或风险。
+- 成员04（Time & Locale）：检查时间、语言字段的异常值（如缺失上映日期），并编写最终推荐表的可读描述。
+- 合并脚本维护者（建议成员02/03协作）：在 scripts/ 目录下新增或更新合并脚本（如 scripts/merge_scores.py），并在 README 中说明运行命令。
+
+5.3 交付物
+- 合并脚本及其运行说明。
+- final_recommendations.csv（或等效命名）与必要的元数据（权重、归一化参数）。
+- 第二阶段检查清单（可记录在 reports/logs/merge_checklist.txt）。
+
+________________________________________
+6. 第三阶段：成果展示（四人协作）
+
+6.1 主要输出
+- PPT 汇报稿：结构包括项目背景、数据来源、四组件方法、合并策略、推荐案例，文件放在 reports/decks/。
+- 可视化网页：使用 Streamlit、Dash 或静态页面展示核心指标与推荐结果，所有代码和资源放在 reports/visualizations/，并提供运行说明（例如 README 或 run.sh）。
+
+6.2 角色分工
+- 成员01：负责内容模块案例介绍，撰写 PPT 中的方法亮点页，并录入网页中文本说明。
+- 成员02：负责整体结构与数据故事，完善 PPT 目录与结论页，并在网页中接入评分分布图。
+- 成员03：负责商业价值展示，准备 ROI 对比图与成功案例，支持网页中的交互式表格或筛选。
+- 成员04：负责时间与地域洞察，制作趋势或地域热力图，并协调网页部署（如编写 `streamlit run reports/visualizations/app.py` 的说明）。
+- 汇报主持人（轮值，可由成员02兼任）：收集所有幻灯片，统一模板，并准备 5-8 分钟讲稿。
+
+6.3 时间与交付节奏（建议）
+- 第三阶段开始前完成第二阶段所有复核项。
+- 第一天：确定 PPT 结构与网页框架，分配页面责任。
+- 第二天：各自提交内容草稿，并在仓库对应目录提交文件。
+- 第三天：合并、走查、彩排，确保展示材料可在本地成功运行。
+
+________________________________________
+7. 版本管理与协作
+
+- Git 提交信息需清晰标注阶段（如 `stage2: normalize and merge scores`）。
+- 任何自动化脚本改动需在 README 或脚本头部添加使用说明。
+- 新增数据文件（如中间结果）请放入 data/processed/，避免覆盖 data/raw/ 原始数据。
+- 若需共享临时笔记，可在 reports/ 下新增子目录，但需在 README 中注明用途。

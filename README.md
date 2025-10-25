@@ -16,3 +16,5 @@ python-project/
 ```
 
 Placeholder `.gitkeep` files are added to each empty directory so Git tracks the structure.
+
+yes

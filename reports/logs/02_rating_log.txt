@@ -1,0 +1,20 @@
+# 02_rating_log.txt
+
+负责成员：王韵嘉
+分析主题：Ratings & Popularity（评分与受欢迎度）
+主要使用的字段：vote_average, vote_count, popularity
+
+主要思路：
+- 将评分、投票数、热度字段转换为数值，去除异常值；
+- 对三个字段分别归一化；
+- 综合权重：vote_average 50%、vote_count 30%、popularity 20%；
+- 输出分数范围 0–100（中位数≈50）。
+
+代码文件：
+scripts/02_rating_scores.py
+
+运行方式：
+    python scripts/02_rating_scores.py
+
+输出文件：
+    reports/tables/02_rating_scores.csv

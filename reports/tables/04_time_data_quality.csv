@@ -1,0 +1,2 @@
+n_rows,runtime_mean,runtime_median,runtime_90pct,release_date_missing_pct,runtime_missing_pct,spoken_languages_missing_pct,original_language_missing_pct,lang_match_pct
+4802,18489.268311286673,103.0,132.0,0.27072053311120364,0.33319450229071224,1.7700957934194086,0.0,93.79425239483548

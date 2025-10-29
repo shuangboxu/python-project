@@ -1,0 +1,38 @@
+# 04_timelanguage_log.txt
+负责成员：李尚泽
+分析主题：时间 / 语言 / 地域 / 时长（Time & Locale）
+主要使用的字段：release_date, runtime, spoken_languages, original_language
+
+主要思路：
+- 新片优先：对 release_date 计算电影年龄并用指数衰减给出 recency 得分（tau=2 年，易调）。
+- 语言匹配：解析 spoken_languages（支持 JSON/dict/list/字符串），提取语言名称或 ISO，并判断是否包含目标用户语言（默认 en）；同时比较 original_language。
+- 时长适配：把 runtime 规范到分钟（启发式：>10000→ms, >500→s, 否则分钟），以理想长度 110min 为中心计算适配度得分（max_dev=120）。
+
+
+复现快速命令（在项目根目录）：
+```powershell
+python -m pip install -r requirements.txt
+python scripts/04_release_geo.py
+```
+
+注：为保证图表中非拉丁字符显示，脚本尝试优先加载系统或 Noto 系列字体；若目标机器缺少相应字体，脚本会回退到英文名称作为标签以保证可读性。
+
+生成产物：
+主表：reports/tables/04_time_scores.csv
+离群值汇报：reports/tables/04_runtime_outliers.csv
+质量分析：reports/tables/04_time_data_quality.csv
+
+
+图像结果
+reports/figures/04_age_years_hist.png
+reports/figures/04_language_match_pie.png
+reports/figures/04_missingness.png
+reports/figures/04_release_year_hist.png
+reports/figures/04_runtime_boxplot.png
+reports/figures/04_time_runtime_hist.png
+reports/figures/04_top_spoken_languages.png
+
+
+- 主表： reports/tables/04_time_scores.csv
+- 质量诊断： reports/tables/04_time_data_quality.csv
+- 图像： reports/figures/04_runtime_vs_age_scatter.png 等

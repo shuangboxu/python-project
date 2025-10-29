@@ -1,0 +1,5 @@
+模块：03 Business（预算/票房/出品方）
+指标：ROI、Revenue（对数+分位裁剪+MinMax）、Studio（公司命中加成）
+合成：0.50*ROI + 0.35*Revenue + 0.15*Studio；缺失项权重归一
+输入：data/processed/movies_business.(xlsx/csv)，必要列 movie_id,title,budget,revenue(+production_companies)
+输出：reports/tables/03_business_scores.csv（三列）

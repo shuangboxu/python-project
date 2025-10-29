@@ -157,8 +157,8 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
     weights = {
-        "content": 0.4,
-        "rating": 0.25,
+        "content": 0.25,
+        "rating": 0.4,
         "business": 0.2,
         "time": 0.15,
     }

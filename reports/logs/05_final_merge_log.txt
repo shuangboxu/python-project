@@ -1,8 +1,8 @@
-[2025-10-29 09:18:26 UTC] Stage-2 blending executed.
+[2025-10-29 09:33:50 UTC] Stage-2 blending executed.
 Run command: python scripts/05_final_recommendations.py
 Top-N exported: 20
 Weights (after normalization):
-  - content: 40.00% 强调文本与标签匹配度以保持主题相关性
-  - rating: 25.00% 利用用户评分与受欢迎度衡量口碑表现
+  - content: 25.00% 强调文本与标签匹配度以保持主题相关性
+  - rating: 40.00% 利用用户评分与受欢迎度衡量口碑表现
   - business: 20.00% 考虑投资回报与头部制片厂影响力
   - time: 15.00% 兼顾上映时间、语言和时长的适配度

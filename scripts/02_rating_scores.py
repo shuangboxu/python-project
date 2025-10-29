@@ -128,12 +128,7 @@ desc.columns = ["Metric", "Value"]
 stats_out = os.path.join(table_dir, "02_rating_summary_stats.csv")
 desc.to_csv(stats_out, index=False)
 
-# 输出权重配置
-weights_info = pd.DataFrame(
-    {"Metric": ["vote_average", "vote_count", "popularity"], "Weight": [w_vote, w_count, w_pop]}
-)
-weights_path = os.path.join(table_dir, "02_rating_weights.csv")
-weights_info.to_csv(weights_path, index=False)
+
 
 # 保存Top10摘要表（带排名）
 top10["Rank"] = range(1, len(top10) + 1)
@@ -147,7 +142,6 @@ print("文件已生成：")
 print(" - reports/tables/02_rating_scores.csv")
 print(" - reports/tables/02_rating_distribution_table.csv")
 print(" - reports/tables/02_rating_summary_stats.csv")
-print(" - reports/tables/02_rating_weights.csv")
 print(" - reports/tables/02_rating_top10_table.csv")
 print(" - reports/figures/02_rating_distribution.png")
 print(" - reports/figures/02_rating_top10.png")

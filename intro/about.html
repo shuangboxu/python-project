@@ -112,6 +112,17 @@ h2 {
       font-size: 26px;
       color: #1e3a8a;
     }
+    .intro h3 {
+      margin-top: 24px;
+      font-size: 20px;
+      color: #0f172a;
+    }
+    .intro ul {
+      padding-left: 1.25rem;
+    }
+    .intro li {
+      margin-bottom: 0.5rem;
+    }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px);}
       to { opacity: 1; transform: translateY(0);}
@@ -243,15 +254,15 @@ h2 {
     const backLink = document.createElement('a');
     backLink.className = 'back';
 
-    if (from === 'index') {
-      backLink.href = 'index.html';
-      backLink.textContent = '← 返回首页';
+    if (from === 'app') {
+      backLink.href = '../app/index.html';
+      backLink.textContent = '返回推荐主页';
     } else if (from === 'reality') {
       backLink.href = 'reality.html';
-      backLink.textContent = '← 返回上一页';
+      backLink.textContent = '返回上一页';
     } else {
-      backLink.href = 'reality.html'; // 默认返回菜单
-      backLink.textContent = '← 返回游戏菜单';
+      backLink.href = '../index.html';
+      backLink.textContent = '返回菜单';
     }
 
     document.body.prepend(backLink); // 插入页面顶部
@@ -262,21 +273,22 @@ h2 {
 
         <!-- 小组介绍 -->
     <section class="intro" id="introSection">
-      <h2>NORTH LAKE 小组介绍</h2>
+      <h2>电影推荐系统项目简介</h2>
       <p>
-        NORTH LAKE 是一个充满创意与活力的游戏开发小组，由六名成员组成：
+        我们围绕 TMDB 电影数据构建多维推荐系统，结合内容特征、用户热度、商业表现以及时间与地域因素，生成兼顾多元偏好的电影清单。项目强调数据可追溯性与指标解释性，让推荐结果既可靠又易于理解。
       </p>
+      <p>
+        项目划分为三个阶段：第一阶段四名成员按特征模块分别产出组件得分表；第二阶段通过合并脚本完成归一化、加权汇总与结果复核；第三阶段将成果转化为网页和汇报材料，向业务方展示推荐逻辑与亮点。
+      </p>
+      <h3>团队分工</h3>
       <ul>
-        <li><b>许双博</b> —— CEO / Project Manager，负责整体规划、进度管理与协调沟通；</li>
-        <li><b>李尚泽</b> —— CTO / CIO，负责技术架构设计、前端核心逻辑实现以及文档与版本管理；</li>
-        <li><b>陈柔冰</b> —— Designer，负责关卡设计、游戏机制细化与剧情流程图绘制；</li>
-        <li><b>徐锦婷</b> —— Audio / Music，负责小组视频、背景音乐创作、音效设计与打击感反馈；</li>
-        <li><b>武红玮</b> —— Writer，负责叙事文本撰写与分支剧情构思；</li>
-        <li><b>王韵嘉</b> —— Tester，负责 Bug 测试、游戏平衡性及用户体验反馈。</li>
+        <li><strong>许双博（Content）</strong>：聚焦 <code>genres</code>、<code>keywords</code>、<code>overview</code>、<code>title</code> 等文本特征，输出 <code>reports/tables/01_content_scores.csv</code>，并维护对应分析脚本与日志。</li>
+        <li><strong>王韵嘉（Ratings &amp; Popularity）</strong>：基于 <code>vote_average</code>、<code>vote_count</code>、<code>popularity</code> 评估评分热度，负责归一化方案设计，产出 <code>reports/tables/02_rating_scores.csv</code>。</li>
+        <li><strong>武红玮（Business）</strong>：分析 <code>budget</code>、<code>revenue</code>、<code>production_companies</code> 的商业价值，评估 ROI 风险，生成 <code>reports/tables/03_business_scores.csv</code>。</li>
+        <li><strong>李尚泽（Time &amp; Locale）</strong>：梳理 <code>release_date</code>、<code>runtime</code>、<code>spoken_languages</code>、<code>original_language</code> 等时间与地域特征，为推荐结果提供场景洞察并输出 <code>reports/tables/04_time_scores.csv</code>。</li>
       </ul>
       <p>
-        小组整体分工明确，既注重技术实现，也兼顾剧情、音效与玩家体验。团队名称 <b>NORTH LAKE</b> 
-        象征我们在开发过程中保持专注、合作与创新的精神。
+        四份组件得分将汇聚为 <code>reports/tables/final_recommendations.csv</code>，并在可视化页面与汇报材料中讲清权重、归一化过程与推荐亮点。
       </p>
 
       <!-- 发送问候按钮区域 -->

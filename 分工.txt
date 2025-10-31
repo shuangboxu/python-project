@@ -10,10 +10,10 @@ ________________________________________
 2. 四人分工（第一阶段组件）
 
 成员按照编号负责以下组件，并输出规范化 CSV：
-- 成员01（Content）：负责 genres、keywords、overview、title，输出 reports/tables/01_content_scores.csv。
-- 成员02（Ratings & Popularity）：负责 vote_average、vote_count、popularity，输出 reports/tables/02_rating_scores.csv。
-- 成员03（Business）：负责 budget、revenue、production_companies，输出 reports/tables/03_business_scores.csv。
-- 成员04（Time & Locale）：负责 release_date、runtime、spoken_languages、original_language，输出 reports/tables/04_time_scores.csv。
+- 成员01许双博（Content）：负责 genres、keywords、overview、title，输出 reports/tables/01_content_scores.csv。
+- 成员02王韵嘉（Ratings & Popularity）：负责 vote_average、vote_count、popularity，输出 reports/tables/02_rating_scores.csv。
+- 成员03武红玮（Business）：负责 budget、revenue、production_companies，输出 reports/tables/03_business_scores.csv。
+- 成员04李尚泽（Time & Locale）：负责 release_date、runtime、spoken_languages、original_language，输出 reports/tables/04_time_scores.csv。
 - 所有 CSV 均需包含且仅包含 movie_id,title,component_score 三列。
 
 ________________________________________

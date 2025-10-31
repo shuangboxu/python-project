@@ -69,6 +69,25 @@
           <span id="results-count" class="badge">0</span>
         </h2>
         <div id="recommendations-grid" class="recommendations__grid"></div>
+        <nav
+          id="pagination"
+          class="pagination"
+          aria-label="Recommendation pages"
+          hidden
+        >
+          <button id="prev-page" type="button" class="pagination__button">
+            Previous
+          </button>
+          <span
+            id="pagination-status"
+            class="pagination__status"
+            role="status"
+            aria-live="polite"
+          ></span>
+          <button id="next-page" type="button" class="pagination__button">
+            Next
+          </button>
+        </nav>
         <p id="no-results" class="empty-state" hidden>
           No movies match your current filters. Try adjusting your age,
           selecting a different language, or searching with another keyword.

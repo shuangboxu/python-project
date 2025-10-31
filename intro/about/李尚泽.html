@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>李尚泽 - 个人介绍</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --text: #e5e7eb;
+      --accent: lab(38.42% 68.75 -42.65);
+      --muted: #94a3b8;
+    }
+    body {
+  margin: 0;
+  font-family: "Microsoft Yahei", sans-serif;
+  background: var(--bg);
+  color: var(--text); 
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: -1;
+  background: url('../images/李尚泽bg.jpg') no-repeat center top;
+  background-size: 100% auto;
+  will-change: transform;
+  pointer-events: none;
+  transform: translateY(var(--parallax-y, 0));
+}
+
+    /* 返回按钮 */
+    .back {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: var(--card);
+      color: var(--accent);
+      padding: 10px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+      overflow: hidden;
+    }
+    .back::before {
+      content: "";
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: var(--accent);
+      transition: all 0.3s ease;
+      z-index: -1;
+    }
+    .back:hover {
+      color: #fff;
+      transform: translateX(3px);
+    }
+    .back:hover::before {
+      left: 0;
+    }
+
+    /* 内容整体 */
+    .container {
+      max-width: 850px;
+      margin: 100px auto 40px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      animation: fadeIn 1.2s ease;
+    }
+
+    /* 头像卡片 */
+    .profile {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.45);
+      text-align: center;
+    }
+    .profile img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      margin-bottom: 12px;
+      animation: glow 2.5s infinite ease-in-out;
+    }
+    h1 {
+      margin: 5px 0;
+      font-size: 26px;
+      color: var(--accent);
+    }
+    h3 {
+      margin: 5px 0 10px;
+      font-size: 16px;
+      color: var(--muted);
+    }
+
+    /* 卡片模块 */
+    .card {
+      background: #1e293b; 
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+    }
+    .card h2 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: var(--accent);
+      border-left: 4px solid var(--accent);
+      padding-left: 10px;
+    }
+    .card p {
+      line-height: 1.8;
+      font-size: 16px;
+      color: var(--muted);
+      text-align: justify;
+    }
+
+    /* 动画 */
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 12px var(--accent), 0 0 24px rgba(34,197,94,0.3);
+      }
+      50% {
+        box-shadow: 0 0 20px var(--accent), 0 0 40px rgba(34,197,94,0.6);
+      }
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+  <script>
+    // 视差滚动效果
+    window.addEventListener('scroll', function() {
+      var scrolled = window.scrollY;
+      document.body.style.setProperty('--parallax-y', -(scrolled * 0.1) + 'px');
+    });
+    // 初始设置
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.style.setProperty('--parallax-y', '0px');
+    });
+  </script>
+</head>
+<body>
+  <!-- 语言切换按钮 -->
+  <div style="position:fixed;top:20px;right:30px;z-index:20;">
+  <a href="李尚泽.html" style="margin-right:8px;padding:6px 16px;background:var(--card);color:var(--accent);border-radius:20px;text-decoration:none;font-size:14px;font-weight:bold;box-shadow:0 2px 6px rgba(0,0,0,0.18);transition:all 0.2s;">中文</a>
+  <a href="LiShangze_en.html" style="margin-right:8px;padding:6px 16px;background:var(--card);color:var(--accent);border-radius:20px;text-decoration:none;font-size:14px;font-weight:bold;box-shadow:0 2px 6px rgba(0,0,0,0.18);transition:all 0.2s;">English</a>
+  <a href="LiShangze_bo.html" style="margin-right:8px;padding:6px 16px;background:var(--card);color:var(--accent);border-radius:20px;text-decoration:none;font-size:14px;font-weight:bold;box-shadow:0 2px 6px rgba(0,0,0,0.18);transition:all 0.2s;">བོད་ཡིག</a>
+  <a href="LiShangze_fr.html" style="padding:6px 16px;background:var(--card);color:var(--accent);border-radius:20px;text-decoration:none;font-size:14px;font-weight:bold;box-shadow:0 2px 6px rgba(0,0,0,0.18);transition:all 0.2s;">Français</a>
+  </div>
+  <!-- 返回按钮 -->
+  <a href="../about.html" class="back">← 返回</a>
+
+  <!-- 内容 -->
+  <div class="container">
+    <div class="profile">
+      <img src="../images/李尚泽.jpg" alt="李尚泽">
+  <h1>李尚泽</h1>
+      <h3>CIO/CTO</h3>
+    </div>
+    <!-- 自我介绍分类模块 -->
+    <div class="card">
+      <h2>职责</h2>
+      <p>
+        本游戏CIO/CTO，负责游戏基础建设设计等工作，同时承担剧本监修、主线设定等工作。
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>兴趣与研究</h2>
+      <p>
+        资深哈迷，自幼熟读哈利波特七部原著（妥妥的原著党）。<br>
+        业余魔法史研究、欧亚古代语言研究，精通如尼文转写。<br>
+        爱好博物学，有点历史癖，甚至写科幻小说还拿过个小奖。
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>游戏经历</h2>
+      <p>
+        并不是资深游戏玩家，玩过的游戏屈指可数。<br>
+        但我始终认为，游戏之所以为游戏，一定要有趣好玩。<br>
+        这也是我参与游戏开发的初衷，希望能为玩家带来快乐。<br>
+        欢迎大家添加我为Steam好友：1776747203<br>
+        ᚾᛁ ᚺᚨᛟ ᛋᛖᚲᛁᛖ
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>想对同志们说的话</h2>
+      <p>
+        革命尚未成功，同志仍需努力！
+      </p>
+    </div>
+
+  </div>
+
+  <!-- 版权信息 -->
+  <footer style="width:100vw;position:fixed;bottom:0;left:0;background:rgba(17,24,39,0.85);color:#e5e7eb;text-align:center;padding:10px 0;font-size:14px;z-index:10;letter-spacing:1px;">
+    © 2025 NORTH LAKE Copyright | 版权所有
+  </footer>
+
+
+    <!-- 背景音乐 -->
+  <audio id="bgm" src="../musics/Rusty Lake Family Tune.mp3" autoplay loop muted></audio>
+  <script>
+    // 等待页面加载后尝试解除静音播放
+    window.addEventListener("load", function () {
+      const audio = document.getElementById("bgm");
+      // 延时解除静音，确保浏览器允许
+      setTimeout(() => {
+        audio.muted = false;
+        audio.play().catch(err => {
+          console.log("自动播放被拦截，需手动交互：", err);
+        });
+      }, 500);
+    });
+  </script>
+</body>
+</html>

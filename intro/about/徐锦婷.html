@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>徐锦婷 - 个人介绍</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --text: #e5e7eb;
+      --accent: #00e5ffcf;
+      --muted: #94a3b8;
+    }
+  body {
+    margin: 0;
+    font-family: "Microsoft Yahei", sans-serif;
+    background: url("../images/徐锦婷bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+    /* 返回按钮 */
+    .back {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: var(--card);
+      color: var(--accent);
+      padding: 10px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+      overflow: hidden;
+    }
+    .back::before {
+      content: "";
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: var(--accent);
+      transition: all 0.3s ease;
+      z-index: -1;
+    }
+    .back:hover {
+      color: #fff;
+      transform: translateX(3px);
+    }
+    .back:hover::before {
+      left: 0;
+    }
+
+    /* 内容整体 */
+    .container {
+      max-width: 850px;
+      margin: 100px auto 40px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      animation: fadeIn 1.2s ease;
+    }
+
+    /* 头像卡片 */
+.profile {
+  background: rgba(17, 24, 39, 0.85); /* 原本 var(--card) #111827，透明度0.8 */
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.45);
+  text-align: center;
+}
+    .profile img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      margin-bottom: 12px;
+      animation: glow 2.5s infinite ease-in-out;
+    }
+    h1 {
+      margin: 5px 0;
+      font-size: 26px;
+      color: var(--accent);
+    }
+    h3 {
+      margin: 5px 0 10px;
+      font-size: 16px;
+      color: var(--muted);
+    }
+
+    /* 简介模块 */
+.card {
+  background: rgba(30, 41, 59, 0.75); /* 原本 #1e293b，透明度0.7 */
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+    }
+    .card h2 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: var(--accent);
+      border-left: 4px solid var(--accent);
+      padding-left: 10px;
+    }
+    .card p {
+      line-height: 1.8;
+      font-size: 16px;
+      color: var(--muted);
+      text-align: justify;
+    }
+
+    /* 动画 */
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 12px var(--accent), 0 0 24px rgba(34,197,94,0.3);
+      }
+      50% {
+        box-shadow: 0 0 20px var(--accent), 0 0 40px rgba(34,197,94,0.6);
+      }
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 返回按钮 -->
+  <a href="../about.html" class="back">← 返回</a>
+
+  <!-- 内容 -->
+  <div class="container">
+    <div class="profile">
+      <img src="../images/徐锦婷1.jpg" alt="徐锦婷">
+      <h1>徐锦婷</h1>
+      <h3>项目策划 · 剧情设计</h3>
+    </div>
+
+    <div class="card">
+      <h2>我的主要工作</h2>
+      <p>
+        在本次小组作业里，我主要负责三大板块工作：小组宣传视频的剪辑、游戏相关美术素材的搜集，以及游戏CG内容的制作，全力为作业的视觉呈现保驾护航。<br><br>
+
+        我在视频剪辑方面有较多实践积累，日常能熟练运用剪映完成视频的剪辑与包装，目前也在系统学习 AE、PR 等专业工具来提升技能。过往创作中，我习惯通过精准的音乐卡点、创意化的文字图片特效搭配，让视频既能紧扣主题，又能通过鲜活的视觉节奏吸引注意力。<br><br>
+
+        同时，我有一定美术基础，加上长期积累的游戏经验，不仅能在游戏美术素材搜集中快速筛选出风格适配、质量过硬的资源，还能从玩家视角出发，结合内容逻辑，为游戏流程的建构提出更贴合实际体验的建议，助力小组作业更高效地推进。
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>剪辑界的 “魔法大师”</h2>
+      <p>
+        手握 PR、AE、剪映三大 “魔杖”，既能把宣传视频打造成霍格沃茨年度大片，
+        也能一秒切换画风，整出令人捧腹的鬼畜名场面，让游戏预热视频自带 “魔法吸引力”。
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>素材收集 “寻宝达人”</h2>
+      <p>
+        凭借丰富的游戏阅历，像在禁林找魔法石一样精准定位美术素材，
+        无论是 RPG 的剧情彩蛋，还是像素风的复古元素，
+        都能快速收入囊中，为游戏搭建 “视觉宝库”。
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>游戏流程 “活地图”</h2>
+      <p>
+        玩过 N 款 RPG 和像素风游戏的 “老玩家”，对游戏流程和构成了如指掌，
+        堪比拥有活点地图，能在素材收集和视频剪辑时，
+        精准贴合游戏逻辑，避免 “走弯路”。
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>风格切换 “变形师”</h2>
+      <p>
+        可盐可甜的剪辑风格，既能 hold 住大片级的史诗感，让玩家一秒代入魔法冒险；
+        也能玩转幽默鬼畜，用魔性片段勾起大家对游戏的好奇，堪称小组的 “风格调味剂”。
+      </p>
+    </div>
+  </div>
+
+  <!-- 背景音乐 -->
+  <audio id="bgm" src="../musics/YOU AND ME.mp3" autoplay loop muted></audio>
+  <script>
+    // 等待页面加载后尝试解除静音播放
+    window.addEventListener("load", function () {
+      const audio = document.getElementById("bgm");
+      // 延时解除静音，确保浏览器允许
+      setTimeout(() => {
+        audio.muted = false;
+        audio.play().catch(err => {
+          console.log("自动播放被拦截，需手动交互：", err);
+        });
+      }, 500);
+    });
+  </script>
+
+</body>
+</html>

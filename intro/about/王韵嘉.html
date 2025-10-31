@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>王韵嘉 - 个人介绍</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --text: #e5e7eb;
+      --accent: #00ffd0;
+      --muted: #94a3b8;
+    }
+  body {
+    margin: 0;
+    font-family: "Microsoft Yahei", sans-serif;
+    background: url("../images/王韵嘉bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+    /* 返回按钮 */
+    .back {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: var(--card);
+      color: var(--accent);
+      padding: 10px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+      overflow: hidden;
+    }
+    .back::before {
+      content: "";
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: var(--accent);
+      transition: all 0.3s ease;
+      z-index: -1;
+    }
+    .back:hover {
+      color: #fff;
+      transform: translateX(3px);
+    }
+    .back:hover::before {
+      left: 0;
+    }
+
+    /* 内容整体 */
+    .container {
+      max-width: 850px;
+      margin: 100px auto 40px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      animation: fadeIn 1.2s ease;
+    }
+
+    /* 头像卡片 */
+.profile {
+  background: rgba(17, 24, 39, 0.9); /* 原本 var(--card) #111827，透明度0.8 */
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.45);
+  text-align: center;
+}
+    .profile img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      margin-bottom: 12px;
+      animation: glow 2.5s infinite ease-in-out;
+    }
+    h1 {
+      margin: 5px 0;
+      font-size: 26px;
+      color: var(--accent);
+    }
+    h3 {
+      margin: 5px 0 10px;
+      font-size: 16px;
+      color: var(--muted);
+    }
+
+    /* 简介模块 */
+.card {
+  background: rgba(30, 41, 59, 0.8); /* 原本 #1e293b，透明度0.7 */
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+    }
+    .card h2 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: var(--accent);
+      border-left: 4px solid var(--accent);
+      padding-left: 10px;
+    }
+    .card p {
+      line-height: 1.8;
+      font-size: 16px;
+      color: var(--muted);
+      text-align: justify;
+    }
+
+    /* 动画 */
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 12px var(--accent), 0 0 24px rgba(34,197,94,0.3);
+      }
+      50% {
+        box-shadow: 0 0 20px var(--accent), 0 0 40px rgba(34,197,94,0.6);
+      }
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 返回按钮 -->
+  <a href="../about.html" class="back">← 返回</a>
+
+<!-- 内容 -->
+<div class="container">
+  <div class="profile">
+    <img src="../images/王韵嘉1.jpg" alt="王韵嘉">
+    <h1>王韵嘉</h1>
+    <h3>游戏设计 · 编程技术</h3>
+  </div>
+
+  <div class="card">
+    <h2>角色与职责</h2>
+    <p>
+      在游戏制作过程中，我担任了designer/tester的角色。作为设计师，我负责构思和创作游戏的核心玩法、关卡设计以及用户体验。与此同时，作为测试员，我深入参与了游戏的每一阶段，确保游戏中的每个环节都顺畅运行，消除BUG并优化游戏体验。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>学习方向</h2>
+    <p>
+      我的学习方向主要集中在游戏设计和编程技术上。通过不断深入了解玩家需求和游戏心理，我设计出符合玩家喜好的游戏内容。同时，我不断提升自己的编程技能，能够参与并编写游戏中的部分代码，确保游戏的流畅度和可操作性。从关卡设定到编写代码，我努力让玩家在探索过程中感受到无尽的惊喜与乐趣。<br>
+      兼修神秘学：在IDE里贡献初代程序员的头发可降低bug率
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>兴趣爱好</h2>
+    <p>
+      热衷于尝试不同类型的游戏，且喜爱用写轮眼进行新番赛博采风。无论是动漫、漫画，还是游戏中的奇幻冒险，我都能从中汲取灵感，创造出独特的体验。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>未来展望</h2>
+    <p>
+      期待通过技术创新打造有影响力的作品，探索数据与人文的更多可能性。
+    </p>
+  </div>
+</div>
+
+
+    <!-- 背景音乐 -->
+  <audio id="bgm" src="../musics/随着你的心意.mp3" autoplay loop muted></audio>
+  <script>
+    // 等待页面加载后尝试解除静音播放
+    window.addEventListener("load", function () {
+      const audio = document.getElementById("bgm");
+      // 延时解除静音，确保浏览器允许
+      setTimeout(() => {
+        audio.muted = false;
+        audio.play().catch(err => {
+          console.log("自动播放被拦截，需手动交互：", err);
+        });
+      }, 500);
+    });
+  </script>
+</body>
+</html>

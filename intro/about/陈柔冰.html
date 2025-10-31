@@ -1,0 +1,203 @@
+<!DOCTYPE html> 
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>陈柔冰 - 个人介绍</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --text: #e5e7eb;
+      --accent: #ffc400;
+      --muted: #94a3b8;
+    }
+  body {
+    margin: 0;
+    font-family: "Microsoft Yahei", sans-serif;
+    background: url("../images/陈柔冰bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+    /* 返回按钮 */
+    .back {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: var(--card);
+      color: var(--accent);
+      padding: 10px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+      overflow: hidden;
+    }
+    .back::before {
+      content: "";
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: var(--accent);
+      transition: all 0.3s ease;
+      z-index: -1;
+    }
+    .back:hover {
+      color: #fff;
+      transform: translateX(3px);
+    }
+    .back:hover::before {
+      left: 0;
+    }
+
+    /* 内容整体 */
+    .container {
+      max-width: 850px;
+      margin: 100px auto 40px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      animation: fadeIn 1.2s ease;
+    }
+
+    /* 头像卡片 */
+.profile {
+  background: rgba(17, 24, 39, 0.85); /* 原本 var(--card) #111827，透明度0.8 */
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.45);
+  text-align: center;
+}
+    .profile img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      margin-bottom: 12px;
+      animation: glow 2.5s infinite ease-in-out;
+    }
+    h1 {
+      margin: 5px 0;
+      font-size: 26px;
+      color: var(--accent);
+    }
+    h3 {
+      margin: 5px 0 10px;
+      font-size: 16px;
+      color: var(--muted);
+    }
+
+    /* 简介模块 */
+.card {
+  background: rgba(30, 41, 59, 0.75); /* 原本 #1e293b，透明度0.7 */
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+    }
+    .card h2 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: var(--accent);
+      border-left: 4px solid var(--accent);
+      padding-left: 10px;
+    }
+    .card p {
+      line-height: 1.8;
+      font-size: 16px;
+      color: var(--muted);
+      text-align: justify;
+    }
+
+    /* 动画 */
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 0 12px var(--accent), 0 0 24px rgba(34,197,94,0.3);
+      }
+      50% {
+        box-shadow: 0 0 20px var(--accent), 0 0 40px rgba(34,197,94,0.6);
+      }
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 返回按钮 -->
+  <a href="../about.html" class="back">← 返回</a>
+
+  <!-- 内容 -->
+  <div class="container">
+    <div class="profile">
+      <img src="../images/陈柔冰1.jpg" alt="陈柔冰">
+      <h1>陈柔冰</h1>
+      <h3>RPG Maker 技术设计 · 核心玩法开发</h3>
+    </div>
+
+    <div class="card">
+      <h2>关于我</h2>
+      <p>
+        我是陈柔冰，在本次基于RPG Maker的项目中，主要负责游戏的整体架构设计与核心玩法构建。
+        我的工作不仅包括地图绘制和事件编辑，还利用RPG Maker的脚本系统（JavaScript）进行底层架构扩展与优化，
+        通过插件整合和自定义功能开发打破引擎限制，构建稳定且功能强大的技术基础。
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>工作理念</h2>
+      <p>
+        我精心设计游戏的核心循环、技能体系、任务逻辑和经济系统，确保玩法既有RPG经典韵味，又富创新体验。
+        作为技术型设计者，我在框架内寻找最优解，既能用事件编辑器快速实现原型，也能通过脚本实现复杂高级功能，
+        注重代码可维护性与系统可扩展性。
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>性格特质</h2>
+      <p>
+        我耐心细致，享受像解谜一样攻克技术难题的过程，具备极强的自学和资源整合能力。
+        在团队中，我重视协作，与编剧、美术伙伴紧密沟通，确保设计意图精准实现，共同打磨出最佳游戏体验。
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>未来展望</h2>
+      <p>
+        我非常期待与团队一起，将奇思妙想在RPG Maker中变为现实，打造真正与众不同的RPG佳作。请多指教！
+      </p>
+    </div>
+  </div>
+
+  <!-- 背景音乐 -->
+  <audio id="bgm" src="../musics/逆転裁判・開廷.mp3" autoplay loop muted></audio>
+  <script>
+    // 等待页面加载后尝试解除静音播放
+    window.addEventListener("load", function () {
+      const audio = document.getElementById("bgm");
+      // 延时解除静音，确保浏览器允许
+      setTimeout(() => {
+        audio.muted = false;
+        audio.play().catch(err => {
+          console.log("自动播放被拦截，需手动交互：", err);
+        });
+      }, 500);
+    });
+  </script>
+</body>
+</html>

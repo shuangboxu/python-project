@@ -141,6 +141,13 @@ def _safe_int(value: Any) -> int | None:
         return None
 
 
+def _clean_text(value: Any, default: str = "") -> str:
+    if value is None or (isinstance(value, float) and pd.isna(value)):
+        return default
+    text = str(value).strip()
+    return text if text else default
+
+
 def main() -> None:
     final_scores = pd.read_csv(FINAL_SCORES_PATH, encoding="utf-8-sig")
     raw_movies = pd.read_excel(RAW_MOVIES_PATH)
@@ -151,6 +158,13 @@ def main() -> None:
     languages_lookup: dict[str, str] = {}
 
     for _, row in merged.iterrows():
+        rank = _safe_int(row.get("rank"))
+        movie_id = _safe_int(row.get("movie_id"))
+        final_score = _safe_float(row.get("final_score"))
+        if rank is None or movie_id is None or final_score is None:
+            # Skip invalid rows to avoid emitting NaN values in the JSON payload.
+            continue
+
         genres = _extract_names(_parse_json_column(row.get("genres", "")))
         keywords = _extract_names(_parse_json_column(row.get("keywords", "")))
         raw_spoken_languages = _extract_names(
@@ -165,14 +179,14 @@ def main() -> None:
         ]
         # Preserve insertion order while deduplicating.
         spoken_languages = list(dict.fromkeys(spoken_languages))
-        language_code = str(row.get("original_language", "")).upper()
+        language_code = _clean_text(row.get("original_language")).upper()
         language_label = LANGUAGE_CODE_MAP.get(language_code, language_code)
         if language_code:
             languages_lookup.setdefault(language_code, language_label)
 
         homepage = row.get("homepage")
         if not isinstance(homepage, str) or not homepage.strip():
-            homepage = f"https://www.themoviedb.org/movie/{int(row['movie_id'])}"
+            homepage = f"https://www.themoviedb.org/movie/{movie_id}"
 
         release_date = row.get("release_date")
         if hasattr(release_date, "date"):
@@ -184,10 +198,10 @@ def main() -> None:
 
         movies.append(
             {
-                "rank": int(row["rank"]),
-                "movie_id": int(row["movie_id"]),
-                "title": row.get("title_x") or row.get("title"),
-                "overview": row.get("overview", ""),
+                "rank": rank,
+                "movie_id": movie_id,
+                "title": _clean_text(row.get("title_x")) or _clean_text(row.get("title")),
+                "overview": _clean_text(row.get("overview")),
                 "genres": genres,
                 "keywords": keywords,
                 "spoken_languages": spoken_languages,
@@ -197,7 +211,7 @@ def main() -> None:
                 "runtime": _safe_int(row.get("runtime")),
                 "vote_average": _safe_float(row.get("vote_average")),
                 "vote_count": _safe_int(row.get("vote_count")),
-                "final_score": float(row["final_score"]),
+                "final_score": final_score,
                 "homepage": homepage,
                 "is_restricted_for_minors": any(
                     genre in AGE_RESTRICTED_GENRES for genre in genres
@@ -221,7 +235,10 @@ def main() -> None:
         "movies": movies,
     }
 
-    OUTPUT_PATH.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
+    OUTPUT_PATH.write_text(
+        json.dumps(output, ensure_ascii=False, indent=2, allow_nan=False),
+        encoding="utf-8",
+    )
 
 
 if __name__ == "__main__":

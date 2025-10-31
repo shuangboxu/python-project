@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>快速入口</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, rgba(52, 152, 219, 0.2), transparent 65%),
+                  radial-gradient(circle at bottom, rgba(46, 204, 113, 0.2), transparent 65%);
+    }
+
+    h1 {
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 2em;
+      max-width: 32rem;
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    .actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      border: 2px solid rgba(52, 152, 219, 0.6);
+      background: rgba(52, 152, 219, 0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .button.primary {
+      background: rgba(52, 152, 219, 0.8);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+      background: rgba(52, 152, 219, 0.2);
+      border-color: rgba(52, 152, 219, 0.8);
+      outline: none;
+    }
+
+    .button.primary:hover,
+    .button.primary:focus-visible {
+      background: rgba(41, 128, 185, 0.9);
+    }
+  </style>
+</head>
+<body>
+  <h1>欢迎来到推荐系统</h1>
+  <p>我们为你准备了快速入口，方便了解项目背景与直接体验推荐主页。</p>
+  <div class="actions">
+    <a class="button" href="intro/about.html">了解项目简介</a>
+    <a class="button primary" href="app/index.html">进入推荐主页</a>
+  </div>
+</body>
+</html>

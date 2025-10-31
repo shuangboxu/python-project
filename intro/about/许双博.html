@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>许双博 - 个人介绍</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg1: #0f172a;
+      --bg2: #1e293b;
+      --card: rgba(17,24,39,0.85);
+      --text: #e5e7eb;
+      --accent: #22c55e;
+      --muted: #94a3b8;
+    }
+  body {
+    margin: 0;
+    font-family: "Microsoft Yahei", sans-serif;
+    background: url("../images/许双博bg.png") no-repeat center center fixed;
+    background-size: cover;
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+    /* 动态渐变背景 */
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* 返回按钮 */
+    .back {
+      position: fixed;
+      top: 20px; left: 20px;
+      background: var(--card);
+      color: var(--accent);
+      padding: 10px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+      overflow: hidden;
+    }
+    .back:hover {
+      background: var(--accent);
+      color: #fff;
+      transform: translateX(3px);
+    }
+
+    /* 内容整体 */
+    .container {
+      max-width: 850px;
+      margin: 100px auto 80px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      animation: fadeIn 1.2s ease;
+    }
+
+    /* 头像卡片 */
+    .profile {
+      background: var(--card);
+      padding: 25px;
+      border-radius: 18px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.55);
+      text-align: center;
+      backdrop-filter: blur(8px);
+      position: relative;
+      overflow: hidden;
+    }
+    .profile::after {
+      content: "";
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: conic-gradient(var(--accent), transparent, var(--accent));
+      animation: spin 8s linear infinite;
+      z-index: 0;
+    }
+    .profile img {
+      width: 130px; height: 130px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+    h1, h3 { position: relative; z-index: 1; }
+    h1 { margin: 5px 0; font-size: 28px; color: var(--accent); }
+    h3 { margin: 5px 0 10px; font-size: 16px; color: var(--muted); }
+
+    @keyframes spin {
+      from { transform: rotate(0); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* 卡片 */
+    .card {
+      background: rgba(30, 41, 59, 0.75); /* 原本 #1e293b，透明度0.7 */
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(6px);
+      border-left: 4px solid var(--accent);
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.55);
+    }
+    .card h2 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+    .card p {
+      line-height: 1.8;
+      font-size: 16px;
+      color: var(--muted);
+      text-align: justify;
+    }
+
+    /* 彩蛋按钮 */
+    .easter {
+      margin: 20px auto 0 auto;
+      display: block;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 12px 26px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .easter:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+    }
+
+    /* 动画 */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <!-- 返回按钮 -->
+  <a href="../about.html" class="back">← 返回</a>
+
+  <!-- 内容 -->
+<div class="container">
+  <div class="profile">
+    <img src="../images/许双博1.jpg" alt="许双博">
+    <h1>许双博</h1>
+    <h3>CEO · 游戏主页与设计负责人</h3>
+  </div>
+
+  <div class="card">
+    <h2>基本介绍</h2>
+    <p>
+      北京理工大学大二学生，数据科学与大数据技术专业。  
+      本项目中担任CEO（Chief Everything Officer），负责游戏主页的构建与小游戏的设计，顺便兼职“打杂工”。<br>  
+      正经一点：学习数据科学，梦想着用算法改变世界。<br>  
+      不正经一点：其实更想用算法帮自己抢课、抢票成功。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>专业技能</h2>
+    <p>
+      精通 <b>复制粘贴</b> ：实现从AI到项目代码的无缝迁移。<br>
+      擅长 <b>快速调试</b> ：第一步怀疑浏览器，第二步怀疑AI，最后才怀疑自己。<br>
+      熟练 <b>团队协作</b> ：把最难的问题交给最可靠的队友——AI。<br>
+      意外的 <b>抗压能力</b> ：当队友说“要加功能”时，心率从未低于120。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>项目贡献</h2>
+    <p>
+      搭建并美化主页，保证整体风格统一。<br>
+      设计小游戏，增强趣味性与互动性。<br>
+      协调分工，推动项目顺利进行。<br>
+      关键时刻 <b>背锅</b> ：只要项目炸了，默认是我的问题。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>个人特色</h2>
+    <p>
+      <b>啥也不会型人才</b>：离开AI可能连个 &lt;div&gt; 都写不齐。<br>
+      <b>灵感搬运工</b>：套路是“提问 → 等待 → 复制 → 粘贴 → 改一点点”。<br>
+      <b>坚韧不拔</b>：哪怕Bug连环炸，也会死磕到底。<br>
+      <b>隐藏属性</b>：能在凌晨两点写Bug，还能在早八课上装作若无其事。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>成长经历</h2>
+    <p>
+      从“小白用户”进化到“Ctrl+C专家”，再到“网页美工半吊子”。  
+      未来计划：成为一个真正能写完代码的人，而不是只会问AI的人。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>未来目标</h2>
+    <p>
+      把游戏项目做成一份可以放进简历的作品。<br>
+      （希望哪天能靠这项目火起来，然后真的有人愿意充钱）
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>座右铭</h2>
+    <p>
+      “不会写代码不可怕，可怕的是没有AI。”  
+      ——以及：“先写出来，再考虑能不能跑。”
+    </p>
+  </div>
+    <div class="card">
+    <h2>联系方式</h2>
+    <p>
+      shuangboxu2@gmail.com
+    </p>
+  </div>
+
+
+</div>
+
+
+    <!-- 彩蛋按钮 -->
+    <button class="easter" onclick="showTruth()">点我查看隐藏真相</button>
+  </div>
+
+  <script>
+    function showTruth() {
+      alert("隐藏真相：其实我就是一个会Ctrl+C和Ctrl+V的CEO 🤣");
+      // 小彩带特效
+      for (let i = 0; i < 20; i++) {
+        const confetti = document.createElement("div");
+        confetti.style.position = "fixed";
+        confetti.style.left = Math.random() * window.innerWidth + "px";
+        confetti.style.top = "-20px";
+        confetti.style.width = "8px";
+        confetti.style.height = "8px";
+        confetti.style.background = `hsl(${Math.random()*360},80%,60%)`;
+        confetti.style.borderRadius = "50%";
+        confetti.style.opacity = "0.9";
+        confetti.style.pointerEvents = "none";
+        document.body.appendChild(confetti);
+
+        let fall = setInterval(() => {
+          confetti.style.top = (parseFloat(confetti.style.top) + 4) + "px";
+          if (parseFloat(confetti.style.top) > window.innerHeight) {
+            confetti.remove();
+            clearInterval(fall);
+          }
+        }, 16);
+      }
+    }
+  </script>
+
+  <!-- 背景音乐 -->
+  <audio id="bgm" src="../musics/Lily's Theme.flac" autoplay loop muted></audio>
+  <script>
+    // 等待页面加载后尝试解除静音播放
+    window.addEventListener("load", function () {
+      const audio = document.getElementById("bgm");
+      // 延时解除静音，确保浏览器允许
+      setTimeout(() => {
+        audio.muted = false;
+        audio.play().catch(err => {
+          console.log("自动播放被拦截，需手动交互：", err);
+        });
+      }, 500);
+    });
+  </script>
+<script>
+  function createSnow() {
+    const snow = document.createElement("div");
+    snow.innerText = "❄";
+    snow.style.position = "fixed";
+    snow.style.top = "-20px";
+    snow.style.left = Math.random() * window.innerWidth + "px";
+    snow.style.fontSize = Math.random() * 12 + 10 + "px";
+    snow.style.color = "white";
+    snow.style.opacity = Math.random() * 0.8 + 0.2; // 0.2~1 之间
+    snow.style.pointerEvents = "none";
+    snow.style.zIndex = 9999;
+    document.body.appendChild(snow);
+
+    // 随机水平漂移方向与速度
+    const drift = (Math.random() - 0.5) * 1; 
+    const fallSpeed = Math.random() * 1.5 + 1; // 下落速度
+
+    let top = -20;
+    let left = parseFloat(snow.style.left);
+
+    function fall() {
+      top += fallSpeed;
+      left += drift;
+
+      snow.style.top = top + "px";
+      snow.style.left = left + "px";
+
+      // 如果落到底部，就移除
+      if (top > window.innerHeight) {
+        snow.remove();
+        return;
+      }
+
+      requestAnimationFrame(fall);
+    }
+    requestAnimationFrame(fall);
+  }
+
+  // 每150ms生成一片雪
+  setInterval(createSnow, 150);
+</script>
+
+<style>
+  .star {
+    position: fixed;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 9998;
+    animation: twinkle 2s infinite alternate;
+  }
+
+  /* 星星闪烁动画 */
+  @keyframes twinkle {
+    from { opacity: 0.3; transform: scale(0.8); }
+    to   { opacity: 1; transform: scale(1.2); }
+  }
+</style>
+
+<script>
+  function createStars(count = 40) {
+    for (let i = 0; i < count; i++) {
+      const star = document.createElement("div");
+      star.classList.add("star");
+
+      // 随机大小
+      const size = Math.random() * 3 + 2; // 2px~5px
+      star.style.width = size + "px";
+      star.style.height = size + "px";
+
+      // 随机位置（只在屏幕上半部分出现）
+      const left = Math.random() * window.innerWidth;
+      const top = Math.random() * (window.innerHeight * 0.3);
+      star.style.left = left + "px";
+      star.style.top = top + "px";
+
+      // 每颗星星动画延迟不一样，看起来更自然
+      star.style.animationDelay = (Math.random() * 3) + "s";
+      star.style.animationDuration = (Math.random() * 2 + 1.5) + "s";
+
+      document.body.appendChild(star);
+    }
+  }
+
+  // 页面加载时生成星星
+  window.onload = () => {
+    createStars(60); // 默认 60 颗
+  };
+</script>
+
+
+</body>
+</html>

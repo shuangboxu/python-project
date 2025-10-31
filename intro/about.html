@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>关于我们</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+     body {
+      background: url("images/about-bg.jpg") no-repeat center center fixed;
+      background-size: cover;
+      font-family: "Microsoft YaHei", "Segoe UI", Roboto, Arial, sans-serif;
+    }
+h2 {
+  text-align: center;
+  font-size: 32px;
+  margin: 24px 0;
+  font-weight: bold;
+
+  /* 渐变文字 */
+  background: linear-gradient(
+    90deg,
+    #ff6ec4,
+    #7873f5,
+    #00f0ff,
+    #ff6ec4
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* 动画闪光流动 */
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      text-align: center;
+      transition: transform .2s;
+    }
+
+    .card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(96,165,250,0.35);
+      transition: transform .3s, box-shadow .3s;
+      animation: glow 3s infinite ease-in-out;
+    }
+
+    .card img:hover {
+      transform: scale(1.12);
+      box-shadow: 0 0 24px rgba(96,165,250,0.8);
+    }
+
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 12px rgba(96,165,250,0.35); }
+      50% { box-shadow: 0 0 24px rgba(96,165,250,0.65); }
+    }
+
+    .card h3 {
+      margin: 12px 0 6px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .card a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* 小组介绍 */
+    .intro {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px 28px;
+      background: rgba(0, 255, 251, 0.224);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      font-size: 16px;
+      line-height: 1.7;
+      text-align: justify;
+      animation: fadeIn 1s ease;
+    }
+    .intro h2 {
+      margin-top: 0;
+      font-size: 26px;
+      color: #1e3a8a;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    /* 返回按钮 */
+    .back {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: var(--card);
+      color: var(--accent);
+      padding: 10px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+      overflow: hidden;
+    }
+    .back::before {
+      content: "";
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: var(--accent);
+      transition: all 0.3s ease;
+      z-index: -1;
+    }
+    .back:hover {
+      color: #fff;
+      transform: translateX(3px);
+    }
+    .back:hover::before {
+      left: 0;
+    }
+
+    /* 发送问候按钮样式 */
+    .greet-wrap {
+      margin-top: 18px;
+      text-align: center;
+    }
+    .greet-btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 12px;
+      border: none;
+      background: linear-gradient(90deg,#6ee7b7,#3b82f6);
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(59,130,246,0.2);
+      transition: transform .15s ease, opacity .15s ease;
+    }
+    .greet-btn:active { transform: translateY(1px); }
+    .greet-btn[disabled] { opacity: 0.55; cursor: default; }
+
+    .greet-note {
+      margin-top: 10px;
+      color: #065f46;
+      font-size: 14px;
+    }
+
+    /* 简洁模态（弹窗） */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .modal {
+      background: #fff;
+      width: min(640px, 92%);
+      border-radius: 12px;
+      padding: 18px;
+      box-shadow: 0 20px 40px rgba(2,6,23,0.4);
+    }
+    .modal h3 { margin: 0 0 8px; font-size: 18px; color: #0f172a; }
+    .modal label { display:block; font-size: 13px; color: #334155; margin-top: 8px; }
+    .modal input[type="text"], .modal textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px 12px;
+      margin-top: 6px;
+      border-radius: 8px;
+      border: 1px solid #e6edf3;
+      resize: vertical;
+      font-size: 14px;
+      font-family: inherit;
+    }
+    .modal .actions {
+      margin-top: 12px;
+      text-align: right;
+    }
+    .modal .btn {
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: none;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .modal .btn.cancel { background: #e6e9ee; margin-right: 8px; color: #0b1220; }
+    .modal .btn.send { background: linear-gradient(90deg,#06b6d4,#3b82f6); color: #fff; }
+
+    /* 发送成功提示（小条） */
+    .sent-banner {
+      display: none;
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.596);
+      color: #065f46;
+      font-weight: 600;
+      text-align: center;
+      border: 1px solid rgba(16,185,129,0.16);
+    }
+  </style>
+</head>
+<body>
+    <!-- 返回按钮 -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const from = params.get('from'); // 获取参数 from 的值
+
+    const backLink = document.createElement('a');
+    backLink.className = 'back';
+
+    if (from === 'index') {
+      backLink.href = 'index.html';
+      backLink.textContent = '← 返回首页';
+    } else if (from === 'reality') {
+      backLink.href = 'reality.html';
+      backLink.textContent = '← 返回上一页';
+    } else {
+      backLink.href = 'reality.html'; // 默认返回菜单
+      backLink.textContent = '← 返回游戏菜单';
+    }
+
+    document.body.prepend(backLink); // 插入页面顶部
+  </script>
+
+  <main class="container">
+    <!-- <h2>NORTH LAKE</h2> -->
+
+        <!-- 小组介绍 -->
+    <section class="intro" id="introSection">
+      <h2>NORTH LAKE 小组介绍</h2>
+      <p>
+        NORTH LAKE 是一个充满创意与活力的游戏开发小组，由六名成员组成：
+      </p>
+      <ul>
+        <li><b>许双博</b> —— CEO / Project Manager，负责整体规划、进度管理与协调沟通；</li>
+        <li><b>李尚泽</b> —— CTO / CIO，负责技术架构设计、前端核心逻辑实现以及文档与版本管理；</li>
+        <li><b>陈柔冰</b> —— Designer，负责关卡设计、游戏机制细化与剧情流程图绘制；</li>
+        <li><b>徐锦婷</b> —— Audio / Music，负责小组视频、背景音乐创作、音效设计与打击感反馈；</li>
+        <li><b>武红玮</b> —— Writer，负责叙事文本撰写与分支剧情构思；</li>
+        <li><b>王韵嘉</b> —— Tester，负责 Bug 测试、游戏平衡性及用户体验反馈。</li>
+      </ul>
+      <p>
+        小组整体分工明确，既注重技术实现，也兼顾剧情、音效与玩家体验。团队名称 <b>NORTH LAKE</b> 
+        象征我们在开发过程中保持专注、合作与创新的精神。
+      </p>
+
+      <!-- 发送问候按钮区域 -->
+      <div class="greet-wrap">
+        <button id="greetBtn" class="greet-btn" type="button">发送问候</button>
+        <div id="greetNote" class="greet-note" aria-live="polite"></div>
+        <div id="sentBanner" class="sent-banner">我们收到问候了，请不要再次重复点击</div>
+      </div>
+    </section>
+
+    <div class="grid1">
+      <!-- 成员 1 -->
+      <div class="card">
+        <a href="about/许双博.html">
+          <img src="images/许双博.jpg" alt="许双博">
+        </a>
+        <a href="about/许双博.html">
+          <h3>许双博</h3>
+          <p>CEO</p>
+        </a>
+      </div>
+
+      <!-- 成员 2 -->
+      <div class="card">
+        <a href="about/李尚泽.html">
+          <img src="images/李尚泽.jpg" alt="李尚泽">
+        </a>
+        <a href="about/李尚泽.html">
+          <h3>李尚泽</h3>
+          <p>CIO/CTO</p>
+        </a>
+      </div>
+
+      <!-- 成员 3 -->
+      <div class="card">
+        <a href="about/王韵嘉.html">
+          <img src="images/王韵嘉.jpg" alt="王韵嘉">
+        </a>
+        <a href="about/王韵嘉.html">
+          <h3>王韵嘉</h3>
+          <p>Designer,Tester</p>
+        </a>
+      </div>
+
+      <!-- 成员 4 -->
+      <div class="card">
+        <a href="about/武红玮.html">
+          <img src="images/武红玮.jpg" alt="武红玮">
+        </a>
+        <a href="about/武红玮.html">
+          <h3>武红玮</h3>
+          <p>Writer</p>
+        </a>
+      </div>
+
+      <!-- 成员 5 -->
+      <div class="card">
+        <a href="about/徐锦婷.html">
+          <img src="images/徐锦婷.jpg" alt="A">
+        </a>
+        <a href="about/徐锦婷.html">
+          <h3>徐锦婷</h3>
+          <p>Audio</p>
+        </a>
+      </div>
+
+      <!-- 成员 6 -->
+      <div class="card">
+        <a href="about/陈柔冰.html">
+          <img src="images/陈柔冰.jpg" alt="B">
+        </a>
+        <a href="about/陈柔冰.html">
+          <h3>陈柔冰</h3>
+          <p>Designer</p>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- 模态弹窗（用于输入问候） -->
+  <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal" role="document" aria-labelledby="modalTitle">
+      <h3 id="modalTitle">发送问候给 NORTH LAKE（只有一次机会哈）</h3>
+      <label for="senderName">你的名字（可选）</label>
+      <input id="senderName" type="text" placeholder="例如：张三 / 匿名" />
+
+      <label for="greetText">你的问候</label>
+      <textarea id="greetText" rows="5" placeholder="在这里写下你的问候（必填）"></textarea>
+
+      <div class="actions">
+        <button class="btn cancel" id="modalCancel">取消</button>
+        <button class="btn send" id="modalSend">发送</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 背景音乐 -->
+  <audio id="bgm" src="musics/Christmas at Hogwarts.mp3" autoplay loop muted></audio>
+
+  <!-- EmailJS SDK（示例） -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <script>
+    // ---------- EmailJS 初始化（Public Key） ----------
+
+    try {
+      emailjs.init("rTTv2TWpefxaBVrqV");
+    } catch (e) {
+      console.warn("EmailJS init 失败（可能 script 未加载）", e);
+    }
+
+    // DOM 元素
+    const greetBtn = document.getElementById('greetBtn');
+    const modalBackdrop = document.getElementById('modalBackdrop');
+    const modalCancel = document.getElementById('modalCancel');
+    const modalSend = document.getElementById('modalSend');
+    const senderNameInput = document.getElementById('senderName');
+    const greetTextInput = document.getElementById('greetText');
+    const greetNote = document.getElementById('greetNote');
+    const sentBanner = document.getElementById('sentBanner');
+
+    const STORAGE_KEY = 'northlake_greeting_sent_v1';
+
+    // 页面加载时检查本地状态（防止重复点击）
+    document.addEventListener('DOMContentLoaded', function() {
+      if (localStorage.getItem(STORAGE_KEY)) {
+        // 已发送过
+        disableGreetButton();
+        showSentBanner();
+      }
+    });
+
+    // 打开模态
+    greetBtn.addEventListener('click', function() {
+      // 如果已经发送则直接提示，不再弹窗
+      if (localStorage.getItem(STORAGE_KEY)) {
+        greetNote.textContent = '我们已经收到你的问候，感谢！';
+        return;
+      }
+      senderNameInput.value = '';
+      greetTextInput.value = '';
+      openModal();
+    });
+
+    modalCancel.addEventListener('click', function() {
+      closeModal();
+    });
+
+    // 发送逻辑
+    modalSend.addEventListener('click', function() {
+      const msg = greetTextInput.value.trim();
+      if (!msg) {
+        alert('请填写你的问候内容（不能为空）');
+        greetTextInput.focus();
+        return;
+      }
+
+      // 防重复点击
+      modalSend.disabled = true;
+      modalCancel.disabled = true;
+
+      const deviceInfo = {
+        screen: `${screen.width}x${screen.height}`,
+        platform: navigator.platform || "未知",
+        language: navigator.language || "未知",
+        userAgent: navigator.userAgent || "未知",
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "未知",
+        url: location.href
+      };
+
+      const templateParams = {
+        name: senderNameInput.value.trim() || '匿名用户',
+        message: msg,
+        time: new Date().toLocaleString(),
+        screen: deviceInfo.screen,
+        platform: deviceInfo.platform,
+        language: deviceInfo.language,
+        userAgent: deviceInfo.userAgent,
+        timezone: deviceInfo.timezone,
+        url: deviceInfo.url,
+        title: '来自网站的问候'
+      };
+
+      const SERVICE_ID = "service_ud0tj5p";    // ← 可替换
+      const TEMPLATE_ID = "template_qoogx2s"; // ← 可替换
+
+      // 发送邮件（EmailJS）
+      emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
+        .then(function(response) {
+          // 成功
+          closeModal();
+          disableGreetButton();
+          localStorage.setItem(STORAGE_KEY, '1'); // 标记已发送，防止重复发送
+          greetNote.textContent = '';
+          showSentBanner();
+          // 你要求的提示文字
+          alert('我们收到问候了，请不要再次重复点击');
+          console.log('EmailJS success', response);
+        }, function(error) {
+          // 失败
+          modalSend.disabled = false;
+          modalCancel.disabled = false;
+          console.error('EmailJS error', error);
+          alert('发送失败：请检查网络或模板/服务配置（控制台有详细错误）');
+        });
+    });
+
+    // 帮助函数
+    function openModal() {
+      modalBackdrop.style.display = 'flex';
+      modalBackdrop.setAttribute('aria-hidden', 'false');
+      greetTextInput.focus();
+    }
+    function closeModal() {
+      modalBackdrop.style.display = 'none';
+      modalBackdrop.setAttribute('aria-hidden', 'true');
+      modalSend.disabled = false;
+      modalCancel.disabled = false;
+    }
+    function disableGreetButton() {
+      greetBtn.disabled = true;
+      greetBtn.textContent = '已发送';
+    }
+    function showSentBanner() {
+      sentBanner.style.display = 'block';
+    }
+
+    // 简单尝试解除静音播放（保留你原来的逻辑）
+    window.addEventListener("load", function () {
+      const audio = document.getElementById("bgm");
+      setTimeout(() => {
+        audio.muted = false;
+        audio.play().catch(err => {
+          console.log("自动播放被拦截，需手动交互：", err);
+        });
+      }, 500);
+    });
+
+    // 可选：按 ESC 关闭模态
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modalBackdrop.style.display === 'flex') {
+        closeModal();
+      }
+    });
+  </script>
+  
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("jmmaKGG_HZAqhw5g1"); 
+    const onlyOnce = true; 
+
+    const now = new Date().toLocaleString();
+    const screenRes = window.screen.width + "x" + window.screen.height;
+    const ua = navigator.userAgent;
+
+    const templateParams = {
+      time: now,
+      screen: screenRes,
+      userAgent: ua
+    };
+
+    if (onlyOnce) {
+      if (!localStorage.getItem("mailSent")) {
+        emailjs.send("service_m343k78", "template_t7hm5be", templateParams)
+          .then(function(response) {
+            console.log("已发送:", response.status, response.text);
+            localStorage.setItem("mailSent", "true");
+          }, function(error) {
+            console.error("发送失败:", error);
+          });
+      }
+    } else {
+      emailjs.send("service_m343k78", "template_t7hm5be", templateParams)
+        .then(function(response) {
+          console.log("已发送:", response.status, response.text);
+        }, function(error) {
+          console.error("发送失败:", error);
+        });
+    }
+  })();
+</script>
+</body>
+</html>

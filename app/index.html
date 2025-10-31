@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cinematic Compass · Personalized Movie Recommendations</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__overlay"></div>
+      <div class="hero__content">
+        <h1>Cinematic Compass</h1>
+        <p>
+          Discover your next favourite film with curated recommendations powered
+          by our scoring model. Fine-tune the experience with age and language
+          preferences, or search for titles and themes that excite you.
+        </p>
+        <a class="hero__cta" href="#discover">Start exploring</a>
+      </div>
+    </header>
+
+    <main id="discover" class="main-content">
+      <section class="controls" aria-label="Filters">
+        <div class="control">
+          <label for="age-input">Your age</label>
+          <input
+            type="number"
+            id="age-input"
+            name="age"
+            min="1"
+            max="120"
+            placeholder="e.g. 25"
+          />
+          <p class="hint" id="age-hint">
+            Viewers younger than 18 will automatically avoid intense genres
+            (horror, thriller, crime, war, mystery).
+          </p>
+        </div>
+        <div class="control">
+          <label for="language-select">Preferred language</label>
+          <select id="language-select" name="language">
+            <option value="all">Any language</option>
+          </select>
+        </div>
+        <div class="control control--search">
+          <label for="keyword-search">Search</label>
+          <input
+            type="search"
+            id="keyword-search"
+            placeholder="Title, genre, or keyword"
+            aria-describedby="search-hint"
+          />
+          <p class="hint" id="search-hint">
+            Search across movie titles, genres, and curated keywords.
+          </p>
+        </div>
+      </section>
+
+      <section class="recommendations" aria-live="polite">
+        <h2 class="section-title">
+          Top Recommendations
+          <span id="results-count" class="badge">0</span>
+        </h2>
+        <div id="recommendations-grid" class="recommendations__grid"></div>
+        <p id="no-results" class="empty-state" hidden>
+          No movies match your current filters. Try adjusting your age,
+          selecting a different language, or searching with another keyword.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        Data sourced from the curated recommendation pipeline and TMDb metadata.
+        Visit the movie pages to learn more and start watching.
+      </p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

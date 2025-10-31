@@ -1,0 +1,297 @@
+:root {
+  color-scheme: light;
+  --bg-body: #0f172a;
+  --bg-card: rgba(15, 23, 42, 0.65);
+  --bg-card-hover: rgba(30, 41, 59, 0.85);
+  --bg-hero-overlay: rgba(15, 23, 42, 0.55);
+  --text-primary: #e2e8f0;
+  --text-secondary: #cbd5f5;
+  --accent: #f97316;
+  --accent-soft: rgba(249, 115, 22, 0.12);
+  --border-muted: rgba(148, 163, 184, 0.35);
+  --shadow-elevated: 0 12px 30px rgba(15, 23, 42, 0.45);
+  --max-width: 1100px;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #020617 0%, #0f172a 40%, #111827 100%);
+  color: var(--text-primary);
+}
+
+a {
+  color: inherit;
+}
+
+.hero {
+  position: relative;
+  min-height: 60vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background-image: url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-hero-overlay);
+  backdrop-filter: blur(4px);
+}
+
+.hero__content {
+  position: relative;
+  padding: 4rem 1.5rem;
+  max-width: 700px;
+}
+
+.hero__content h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.hero__content p {
+  line-height: 1.6;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+}
+
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  padding: 0.9rem 2.6rem;
+  background: var(--accent);
+  color: #111827;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: var(--shadow-elevated);
+}
+
+.hero__cta:hover,
+.hero__cta:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 40px rgba(249, 115, 22, 0.45);
+}
+
+.main-content {
+  position: relative;
+  z-index: 1;
+  margin: -5rem auto 0;
+  padding: 0 1.5rem 4rem;
+  max-width: var(--max-width);
+}
+
+.controls {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid var(--border-muted);
+  padding: 2rem;
+  border-radius: 24px;
+  box-shadow: var(--shadow-elevated);
+  backdrop-filter: blur(12px);
+}
+
+.control label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.control input,
+.control select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  font-size: 1rem;
+  background: rgba(2, 6, 23, 0.65);
+  color: var(--text-primary);
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.control input:focus,
+.control select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.control--search {
+  grid-column: 1 / -1;
+}
+
+.hint {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: rgba(203, 213, 225, 0.75);
+}
+
+.section-title {
+  margin: 3rem 0 1.5rem;
+  font-family: "Playfair Display", serif;
+  font-size: 2.2rem;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.badge {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.recommendations__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.8rem;
+}
+
+.movie-card {
+  background: var(--bg-card);
+  border-radius: 24px;
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid transparent;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
+  box-shadow: var(--shadow-elevated);
+}
+
+.movie-card:hover,
+.movie-card:focus-within {
+  transform: translateY(-6px);
+  border-color: rgba(249, 115, 22, 0.4);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.6);
+}
+
+.movie-card h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+}
+
+.movie-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  color: rgba(226, 232, 240, 0.8);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.18);
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+}
+
+.genre-list,
+.keyword-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.movie-card__overview {
+  margin: 0;
+  color: rgba(226, 232, 240, 0.78);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.movie-card__cta {
+  margin-top: auto;
+  align-self: flex-start;
+  padding: 0.65rem 1.6rem;
+  border-radius: 999px;
+  text-decoration: none;
+  background: var(--accent);
+  color: #111827;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.movie-card__cta:hover,
+.movie-card__cta:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(249, 115, 22, 0.35);
+}
+
+.movie-card__labels {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.movie-card__labels .chip {
+  background: rgba(249, 115, 22, 0.15);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.empty-state {
+  margin-top: 2rem;
+  text-align: center;
+  color: rgba(203, 213, 225, 0.7);
+  font-size: 1rem;
+}
+
+.footer {
+  padding: 2rem 1.5rem 3rem;
+  text-align: center;
+  color: rgba(203, 213, 225, 0.6);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .hero__content {
+    padding: 3.5rem 1.25rem;
+  }
+
+  .controls {
+    padding: 1.6rem;
+  }
+
+  .movie-card {
+    padding: 1.5rem;
+  }
+}

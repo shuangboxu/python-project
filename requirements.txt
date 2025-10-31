@@ -3,4 +3,5 @@ numpy
 scikit-learn
 matplotlib
 wordcloud
+pillow
 openpyxl

@@ -6,9 +6,17 @@ const searchInput = document.getElementById("keyword-search");
 const grid = document.getElementById("recommendations-grid");
 const resultsCount = document.getElementById("results-count");
 const noResults = document.getElementById("no-results");
+const pagination = document.getElementById("pagination");
+const prevButton = document.getElementById("prev-page");
+const nextButton = document.getElementById("next-page");
+const paginationStatus = document.getElementById("pagination-status");
+
+const PAGE_SIZE = 12;
 
 let movies = [];
 let metadata = {};
+let filteredMovies = [];
+let currentPage = 1;
 
 async function loadData() {
   try {
@@ -20,10 +28,12 @@ async function loadData() {
     movies = data.movies || [];
     metadata = data.metadata || {};
     populateLanguageOptions();
-    renderMovies(movies);
+    filteredMovies = movies.slice();
+    renderCurrentPage();
   } catch (error) {
     grid.innerHTML = `<p class="empty-state">Unable to load movie data. ${error.message}</p>`;
     resultsCount.textContent = "0";
+    pagination.hidden = true;
   }
 }
 
@@ -142,6 +152,7 @@ function renderMovies(list) {
   if (!list.length) {
     noResults.hidden = false;
     resultsCount.textContent = "0";
+    pagination.hidden = true;
     return;
   }
 
@@ -149,16 +160,66 @@ function renderMovies(list) {
   const fragment = document.createDocumentFragment();
   list.forEach((movie) => fragment.appendChild(createMovieCard(movie)));
   grid.appendChild(fragment);
-  resultsCount.textContent = String(list.length);
 }
 
 function handleFiltersChange() {
-  const filtered = movies.filter(movieMatchesFilters);
-  renderMovies(filtered);
+  filteredMovies = movies.filter(movieMatchesFilters);
+  currentPage = 1;
+  renderCurrentPage();
 }
 
 ageInput.addEventListener("input", handleFiltersChange);
 languageSelect.addEventListener("change", handleFiltersChange);
 searchInput.addEventListener("input", handleFiltersChange);
+
+function renderCurrentPage() {
+  const total = filteredMovies.length;
+  resultsCount.textContent = String(total);
+
+  if (!total) {
+    renderMovies([]);
+    return;
+  }
+
+  const totalPages = Math.ceil(total / PAGE_SIZE);
+  currentPage = Math.min(Math.max(currentPage, 1), totalPages);
+  const startIndex = (currentPage - 1) * PAGE_SIZE;
+  const pageItems = filteredMovies.slice(startIndex, startIndex + PAGE_SIZE);
+
+  renderMovies(pageItems);
+  updatePagination(total, totalPages);
+}
+
+function updatePagination(total, totalPages) {
+  if (total <= PAGE_SIZE) {
+    pagination.hidden = true;
+    paginationStatus.textContent = "";
+    return;
+  }
+
+  pagination.hidden = false;
+  const start = (currentPage - 1) * PAGE_SIZE + 1;
+  const end = Math.min(start + PAGE_SIZE - 1, total);
+  paginationStatus.textContent = `Showing ${start}–${end} of ${total}`;
+  prevButton.disabled = currentPage === 1;
+  nextButton.disabled = currentPage === totalPages;
+}
+
+prevButton.addEventListener("click", () => {
+  if (currentPage > 1) {
+    currentPage -= 1;
+    renderCurrentPage();
+    grid.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+});
+
+nextButton.addEventListener("click", () => {
+  const totalPages = Math.ceil(filteredMovies.length / PAGE_SIZE);
+  if (currentPage < totalPages) {
+    currentPage += 1;
+    renderCurrentPage();
+    grid.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+});
 
 loadData();

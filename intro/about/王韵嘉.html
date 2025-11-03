@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="zh">
-<head>
-  <meta charset="UTF-8">
-  <title>王韵嘉 - 个人介绍</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
+<html data-lang="en" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Wang Yunjia &middot; Content Intelligence | 王韵嘉 &middot; 内容理解
+  </title>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+   <script defer="" src="../../lang-toggle.js">
+   </script>
+   <style>
     :root {
       --bg: #0f172a;
       --card: #111827;
@@ -136,54 +140,139 @@
         transform: translateY(0);
       }
     }
-  </style>
-</head>
-<body>
+   </style>
+  </meta>
+ </head>
+ <body>
+  <div class="language-switcher" data-i18n-ignore="">
+   <button aria-pressed="true" class="active" data-lang="en" type="button">
+    English
+   </button>
+   <button aria-pressed="false" data-lang="zh" type="button">
+    中文
+   </button>
+  </div>
   <!-- 返回按钮 -->
-  <a href="../about.html" class="back">← 返回</a>
-
-<!-- 内容 -->
-<div class="container">
-  <div class="profile">
-    <img src="../images/王韵嘉1.jpg" alt="王韵嘉">
-    <h1>王韵嘉</h1>
-    <h3>文本感知 · 内容评分</h3>
-  </div>
-
-  <div class="card">
-    <h2>角色与职责</h2>
-    <p>
+  <a class="back" href="../about.html">
+   &larr;
+   <span class="lang-en">
+    Back
+   </span>
+   <span class="lang-zh">
+    返回
+   </span>
+  </a>
+  <!-- 内容 -->
+  <div class="container">
+   <div class="profile">
+    <img alt="王韵嘉" src="../images/王韵嘉1.jpg"/>
+    <h1>
+     <span class="lang-en">
+      Wang Yunjia
+     </span>
+     <span class="lang-zh">
+      王韵嘉
+     </span>
+    </h1>
+    <h3>
+     <span class="lang-en">
+      Narrative Analyst &middot; Content Scoring
+     </span>
+     <span class="lang-zh">
+      文本感知 &middot; 内容评分
+     </span>
+    </h3>
+   </div>
+   <div class="card">
+    <h2>
+     <span class="lang-en">
+      Role &amp; Responsibilities
+     </span>
+     <span class="lang-zh">
+      角色与职责
+     </span>
+    </h2>
+    <div class="lang-en">
+     <p>
+      Owns the content understanding module of the movie recommender. Builds natural-language features from reviews, plot summaries, and awards to design emotion and narrative-completeness scores that explain the final rating. Maintains
+      <code>
+       scripts/02_text_scores.py
+      </code>
+      with runnable docs and unit tests so every scoring run is reproducible.
+     </p>
+    </div>
+    <div class="lang-zh">
+     <p>
       负责电影推荐系统的内容理解模块。围绕影评、剧情简介和获奖信息构建自然语言特征，设计情感分和叙事完整度两套指标，为终端评分提供可解释的文本视角。同时维护 `scripts/02_text_scores.py` 的运行文档与单元测试，保障每次跑分都能复现。
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>学习方向</h2>
-    <p>
+     </p>
+    </div>
+   </div>
+   <div class="card">
+    <h2>
+     <span class="lang-en">
+      Learning Focus
+     </span>
+     <span class="lang-zh">
+      学习方向
+     </span>
+    </h2>
+    <div class="lang-en">
+     <p>
+      Deepens expertise in NLP and information retrieval, comfortable with fine-tuning Transformer models while exploring how BM25 and sparse vectors combine for review search. Curates Douban and Rotten Tomatoes corpora, loves crafting prompt-generated tag clouds to inspire teammates.
+     </p>
+    </div>
+    <div class="lang-zh">
+     <p>
       持续深耕 NLP 与信息检索，熟悉 Transformers 微调流程，也在研读 BM25 与稀疏向量在影评检索中的结合方式。课余会整理豆瓣与烂番茄的语料清洗策略，沉迷用 Prompt 生成新的标签词云，给队友提供灵感板。
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>兴趣爱好</h2>
-    <p>
+     </p>
+    </div>
+   </div>
+   <div class="card">
+    <h2>
+     <span class="lang-en">
+      Interests
+     </span>
+     <span class="lang-zh">
+      兴趣爱好
+     </span>
+    </h2>
+    <div class="lang-en">
+     <p>
+      Obsessed with film festivals, red-carpet lore, and post-credit trivia; weekends are for live-blogging screening notes. Also reverse-engineers playlist logic at TGI Friday, and occasionally hosts podcasts to share tips on scoring models so data can tell human stories.
+     </p>
+    </div>
+    <div class="lang-zh">
+     <p>
       痴迷电影节红毯与幕后故事，周末最爱蹲直播写观影感想；也会在 TGI Friday 的卡座里拆解配乐逻辑。偶尔做播客分享评分模型的小技巧，给数据说人话。
-    </p>
+     </p>
+    </div>
+   </div>
+   <div class="card">
+    <h2>
+     <span class="lang-en">
+      Future Outlook
+     </span>
+     <span class="lang-zh">
+      未来展望
+     </span>
+    </h2>
+    <div class="lang-en">
+     <p>
+      Plans to blend text scoring with a knowledge graph and build a &ldquo;director style vector&rdquo; lab. The goal is to explain recommendation results with &ldquo;why this film&rdquo; narratives instead of &ldquo;because the model said so.&rdquo;
+     </p>
+    </div>
+    <div class="lang-zh">
+     <p>
+      计划把文本评分和知识图谱结合，推出「导演风格向量」实验室。希望让推荐结果能解释&ldquo;为什么是这部电影&rdquo;，而不是&ldquo;模型说的&rdquo;。
+     </p>
+    </div>
+   </div>
   </div>
-
-  <div class="card">
-    <h2>未来展望</h2>
-    <p>
-      计划把文本评分和知识图谱结合，推出「导演风格向量」实验室。希望让推荐结果能解释“为什么是这部电影”，而不是“模型说的”。
-    </p>
-  </div>
-</div>
-
-
-    <!-- 背景音乐 -->
-  <audio id="bgm" src="../musics/随着你的心意.mp3" autoplay loop muted></audio>
+  <!-- 背景音乐 -->
+  <audio autoplay="" id="bgm" loop="" muted="" src="../musics/随着你的心意.mp3">
+  </audio>
   <script>
-    // 等待页面加载后尝试解除静音播放
+   // 等待页面加载后尝试解除静音播放
     window.addEventListener("load", function () {
       const audio = document.getElementById("bgm");
       // 延时解除静音，确保浏览器允许
@@ -195,5 +284,5 @@
       }, 500);
     });
   </script>
-</body>
+ </body>
 </html>

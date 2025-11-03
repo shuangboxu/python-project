@@ -1,0 +1,160 @@
+html>head>meta>body>div>div>img>h1::许双博
+html>head>meta>body>div>div>img>h3::产品统筹 · 主页体验负责人
+html>head>meta>body>div>div>img>div>h2::基本介绍
+html>head>meta>body>div>div>img>div>p::北京理工大学数据科学与大数据技术专业大二学生。电影推荐项目里担任产品统筹，负责协调四位评分同学的交付节奏，梳理需求并把结果转译成用户能看懂的呈现方式。白天写需求文档，晚上写 README 和部署说明。
+html>head>meta>body>div>div>img>div>h2::专业技能
+html>head>meta>body>div>div>img>div>p::精通
+html>head>meta>body>div>div>img>div>p>b::交互原型
+html>head>meta>body>div>div>img>div>p::：用 Figma 和白板快速验证推荐界面。
+html>head>meta>body>div>div>img>div>p>br::熟悉
+html>head>meta>body>div>div>img>div>p>br>b::前端集成
+html>head>meta>body>div>div>img>div>p>br::：维护 `intro/about` 与主页静态资源，确保路径、字体和构建脚本一致。
+html>head>meta>body>div>div>img>div>p>br>br::擅长
+html>head>meta>body>div>div>img>div>p>br>br>b::进度跟踪
+html>head>meta>body>div>div>img>div>p>br>br::：用 Notion 看板同步每个评分脚本的测试状态，及时提醒补齐日志。
+html>head>meta>body>div>div>img>div>p>br>br>br::具备
+html>head>meta>body>div>div>img>div>p>br>br>br>b::数据素养
+html>head>meta>body>div>div>img>div>p>br>br>br::：能读懂队友的模型指标，并把召回率翻译成“推荐更准”这种语言。
+html>head>meta>body>div>div>img>div>p>br>br>br>div>h2::项目贡献
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p::负责静态官网和汇报页面搭建，整理项目导航与配色体系。
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br::统一数据文件命名规范，推动 `reports/` 目录保持可追溯。
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br>br::筹备答辩素材，把复杂的算法流程拆成三张图一段故事。
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br>br>br::当环境报错时第一时间顶上，和技术同学 pair debugging，直到 Demo 能跑。
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br>br>br>div>h2::个人特色
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br>br>br>div>p>b::用户视角
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br>br>br>div>p::：喜欢站在观影者角度评估推荐理由。
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br>br>br>div>p>br>b::灵感收集
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br>br>br>div>p>br::：沉迷逛流媒体 App，总结值得借鉴的交互动效。
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br>br>br>div>p>br>br>b::抗压属性
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br>br>br>div>p>br>br::：冲刺周常驻夜班，第二天还能笑着讲进度。
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br>br>br>div>p>br>br>br>b::隐藏技能
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br>br>br>div>p>br>br>br::：能在会议上三分钟把散乱的需求变成行动清单。
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br>br>br>div>p>br>br>br>div>h2::成长经历
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br>br>br>div>p>br>br>br>div>p::从第一次把 CSV 塞进网页，到现在能搭起完整的展示站点；也学会了和算法、数据、设计多角色合作。下一步准备补完前端测试体系，把每次上线都控制在可预期的节奏里。
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br>br>br>div>p>br>br>br>div>h2::未来目标
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br>br>br>div>p>br>br>br>div>p::想把这个推荐系统包装成可复用的产品模板，让更多团队能用一套流程完成数据→模型→展示的闭环，同时把用户反馈接入数据管线，形成真正的“以观众为中心”。
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br>br>br>div>p>br>br>br>div>h2::座右铭
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br>br>br>div>p>br>br>br>div>p::“交付要写在日历上，体验要放进用户心里。”
+      ——以及：“文档写完，项目才算上线。”
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br>br>br>div>p>br>br>br>div>h2::联系方式
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br>br>br>div>p>br>br>br>div>p::shuangboxu2@gmail.com
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br>br>br>div>p>br>br>br>button::点我查看隐藏真相
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br>br>br>div>p>br>br>br>script::function showTruth() {
+      alert("隐藏真相：其实我只是把 Notion 待办贴满的产品狗 🤣");
+      // 小彩带特效
+      for (let i = 0; i < 20; i++) {
+        const confetti = document.createElement("div");
+        confetti.style.position = "fixed";
+        confetti.style.left = Math.random() * window.innerWidth + "px";
+        confetti.style.top = "-20px";
+        confetti.style.width = "8px";
+        confetti.style.height = "8px";
+        confetti.style.background = `hsl(${Math.random()*360},80%,60%)`;
+        confetti.style.borderRadius = "50%";
+        confetti.style.opacity = "0.9";
+        confetti.style.pointerEvents = "none";
+        document.body.appendChild(confetti);
+
+        let fall = setInterval(() => {
+          confetti.style.top = (parseFloat(confetti.style.top) + 4) + "px";
+          if (parseFloat(confetti.style.top) > window.innerHeight) {
+            confetti.remove();
+            clearInterval(fall);
+          }
+        }, 16);
+      }
+    }
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br>br>br>div>p>br>br>br>script::// 等待页面加载后尝试解除静音播放
+    window.addEventListener("load", function () {
+      const audio = document.getElementById("bgm");
+      // 延时解除静音，确保浏览器允许
+      setTimeout(() => {
+        audio.muted = false;
+        audio.play().catch(err => {
+          console.log("自动播放被拦截，需手动交互：", err);
+        });
+      }, 500);
+    });
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br>br>br>div>p>br>br>br>script::function createSnow() {
+    const snow = document.createElement("div");
+    snow.innerText = "❄";
+    snow.style.position = "fixed";
+    snow.style.top = "-20px";
+    snow.style.left = Math.random() * window.innerWidth + "px";
+    snow.style.fontSize = Math.random() * 12 + 10 + "px";
+    snow.style.color = "white";
+    snow.style.opacity = Math.random() * 0.8 + 0.2; // 0.2~1 之间
+    snow.style.pointerEvents = "none";
+    snow.style.zIndex = 9999;
+    document.body.appendChild(snow);
+
+    // 随机水平漂移方向与速度
+    const drift = (Math.random() - 0.5) * 1; 
+    const fallSpeed = Math.random() * 1.5 + 1; // 下落速度
+
+    let top = -20;
+    let left = parseFloat(snow.style.left);
+
+    function fall() {
+      top += fallSpeed;
+      left += drift;
+
+      snow.style.top = top + "px";
+      snow.style.left = left + "px";
+
+      // 如果落到底部，就移除
+      if (top > window.innerHeight) {
+        snow.remove();
+        return;
+      }
+
+      requestAnimationFrame(fall);
+    }
+    requestAnimationFrame(fall);
+  }
+
+  // 每150ms生成一片雪
+  setInterval(createSnow, 150);
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br>br>br>div>p>br>br>br>style::.star {
+    position: fixed;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: 9998;
+    animation: twinkle 2s infinite alternate;
+  }
+
+  /* 星星闪烁动画 */
+  @keyframes twinkle {
+    from { opacity: 0.3; transform: scale(0.8); }
+    to   { opacity: 1; transform: scale(1.2); }
+  }
+html>head>meta>body>div>div>img>div>p>br>br>br>div>p>br>br>br>div>p>br>br>br>script::function createStars(count = 40) {
+    for (let i = 0; i < count; i++) {
+      const star = document.createElement("div");
+      star.classList.add("star");
+
+      // 随机大小
+      const size = Math.random() * 3 + 2; // 2px~5px
+      star.style.width = size + "px";
+      star.style.height = size + "px";
+
+      // 随机位置（只在屏幕上半部分出现）
+      const left = Math.random() * window.innerWidth;
+      const top = Math.random() * (window.innerHeight * 0.3);
+      star.style.left = left + "px";
+      star.style.top = top + "px";
+
+      // 每颗星星动画延迟不一样，看起来更自然
+      star.style.animationDelay = (Math.random() * 3) + "s";
+      star.style.animationDuration = (Math.random() * 2 + 1.5) + "s";
+
+      document.body.appendChild(star);
+    }
+  }
+
+  // 页面加载时生成星星
+  window.onload = () => {
+    createStars(60); // 默认 60 颗
+  };

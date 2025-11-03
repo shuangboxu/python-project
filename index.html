@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>快速入口</title>
+  <title>Quick Access</title>
+  <script src="lang-toggle.js" defer></script>
   <style>
     :root {
       color-scheme: light dark;
@@ -19,6 +20,7 @@
       min-height: 100vh;
       background: radial-gradient(circle at top, rgba(52, 152, 219, 0.2), transparent 65%),
                   radial-gradient(circle at bottom, rgba(46, 204, 113, 0.2), transparent 65%);
+      text-align: center;
     }
 
     h1 {
@@ -29,7 +31,6 @@
       margin-top: 0;
       margin-bottom: 2em;
       max-width: 32rem;
-      text-align: center;
       line-height: 1.6;
     }
 
@@ -80,11 +81,15 @@
   </style>
 </head>
 <body>
-  <h1>欢迎来到推荐系统</h1>
-  <p>我们为你准备了快速入口，方便了解项目背景与直接体验推荐主页。</p>
+  <div class="language-switcher" data-i18n-ignore>
+    <button type="button" data-lang="en" aria-pressed="true" class="active">English</button>
+    <button type="button" data-lang="zh" aria-pressed="false">中文</button>
+  </div>
+  <h1>Welcome to the Recommendation System 推荐系统欢迎你</h1>
+  <p>We prepared quick shortcuts so you can learn about the project background and jump straight into the recommendation homepage. 我们为你准备了快速入口，方便了解项目背景并直接体验推荐主页。</p>
   <div class="actions">
-    <a class="button" href="intro/about.html">了解项目简介</a>
-    <a class="button primary" href="app/index.html">进入推荐主页</a>
+    <a class="button" href="intro/about.html">Project Overview 项目简介</a>
+    <a class="button primary" href="app/index.html">Explore Recommendations 进入推荐主页</a>
   </div>
 </body>
 </html>

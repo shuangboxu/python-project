@@ -1,0 +1,21 @@
+html>head>meta>body>div>div>img>h1::王韵嘉
+html>head>meta>body>div>div>img>h3::文本感知 · 内容评分
+html>head>meta>body>div>div>img>div>h2::角色与职责
+html>head>meta>body>div>div>img>div>p::负责电影推荐系统的内容理解模块。围绕影评、剧情简介和获奖信息构建自然语言特征，设计情感分和叙事完整度两套指标，为终端评分提供可解释的文本视角。同时维护 `scripts/02_text_scores.py` 的运行文档与单元测试，保障每次跑分都能复现。
+html>head>meta>body>div>div>img>div>h2::学习方向
+html>head>meta>body>div>div>img>div>p::持续深耕 NLP 与信息检索，熟悉 Transformers 微调流程，也在研读 BM25 与稀疏向量在影评检索中的结合方式。课余会整理豆瓣与烂番茄的语料清洗策略，沉迷用 Prompt 生成新的标签词云，给队友提供灵感板。
+html>head>meta>body>div>div>img>div>h2::兴趣爱好
+html>head>meta>body>div>div>img>div>p::痴迷电影节红毯与幕后故事，周末最爱蹲直播写观影感想；也会在 TGI Friday 的卡座里拆解配乐逻辑。偶尔做播客分享评分模型的小技巧，给数据说人话。
+html>head>meta>body>div>div>img>div>h2::未来展望
+html>head>meta>body>div>div>img>div>p::计划把文本评分和知识图谱结合，推出「导演风格向量」实验室。希望让推荐结果能解释“为什么是这部电影”，而不是“模型说的”。
+html>head>meta>body>div>div>img>script::// 等待页面加载后尝试解除静音播放
+    window.addEventListener("load", function () {
+      const audio = document.getElementById("bgm");
+      // 延时解除静音，确保浏览器允许
+      setTimeout(() => {
+        audio.muted = false;
+        audio.play().catch(err => {
+          console.log("自动播放被拦截，需手动交互：", err);
+        });
+      }, 500);
+    });

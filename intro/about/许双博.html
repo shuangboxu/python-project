@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="zh">
-<head>
-  <meta charset="UTF-8">
-  <title>许双博 - 个人介绍</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
+<html data-lang="en" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Xu Shuangbo &middot; Personal Profile | 许双博 &middot; 个人介绍
+  </title>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+   <script defer="" src="../../lang-toggle.js">
+   </script>
+   <style>
     :root {
       --bg1: #0f172a;
       --bg2: #1e293b;
@@ -150,95 +154,337 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-  </style>
-</head>
-<body>
+   </style>
+  </meta>
+ </head>
+ <body>
+  <div class="language-switcher" data-i18n-ignore="">
+   <button aria-pressed="true" class="active" data-lang="en" type="button">
+    English
+   </button>
+   <button aria-pressed="false" data-lang="zh" type="button">
+    中文
+   </button>
+  </div>
   <!-- 返回按钮 -->
-  <a href="../about.html" class="back">← 返回</a>
-
+  <a class="back" href="../about.html">
+   &larr;
+   <span class="lang-en">
+    Back
+   </span>
+   <span class="lang-zh">
+    返回
+   </span>
+  </a>
   <!-- 内容 -->
-<div class="container">
-  <div class="profile">
-    <img src="../images/许双博1.jpg" alt="许双博">
-    <h1>许双博</h1>
-    <h3>产品统筹 · 主页体验负责人</h3>
-  </div>
-
-  <div class="card">
-    <h2>基本介绍</h2>
-    <p>
+  <div class="container">
+   <div class="profile">
+    <img alt="许双博" src="../images/许双博1.jpg"/>
+    <h1>
+     <span class="lang-en">
+      Xu Shuangbo
+     </span>
+     <span class="lang-zh">
+      许双博
+     </span>
+    </h1>
+    <h3>
+     <span class="lang-en">
+      Product Coordinator &middot; Homepage Experience Lead
+     </span>
+     <span class="lang-zh">
+      产品统筹 &middot; 主页体验负责人
+     </span>
+    </h3>
+   </div>
+   <div class="card">
+    <h2>
+     <span class="lang-en">
+      Profile Summary
+     </span>
+     <span class="lang-zh">
+      基本介绍
+     </span>
+    </h2>
+    <div class="lang-en">
+     <p>
+      I am a second-year Data Science and Big Data Technology student at Beijing Institute of Technology. Inside the movie recommendation project I coordinate the product work, synchronise delivery across four scoring teammates, and translate requirements into user-facing experiences. Daytime is for requirement specs; nights are reserved for README updates and deployment notes.
+     </p>
+    </div>
+    <div class="lang-zh">
+     <p>
       北京理工大学数据科学与大数据技术专业大二学生。电影推荐项目里担任产品统筹，负责协调四位评分同学的交付节奏，梳理需求并把结果转译成用户能看懂的呈现方式。白天写需求文档，晚上写 README 和部署说明。
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>专业技能</h2>
-    <p>
-      精通 <b>交互原型</b> ：用 Figma 和白板快速验证推荐界面。<br>
-      熟悉 <b>前端集成</b> ：维护 `intro/about` 与主页静态资源，确保路径、字体和构建脚本一致。<br>
-      擅长 <b>进度跟踪</b> ：用 Notion 看板同步每个评分脚本的测试状态，及时提醒补齐日志。<br>
-      具备 <b>数据素养</b> ：能读懂队友的模型指标，并把召回率翻译成“推荐更准”这种语言。
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>项目贡献</h2>
-    <p>
-      负责静态官网和汇报页面搭建，整理项目导航与配色体系。<br>
-      统一数据文件命名规范，推动 `reports/` 目录保持可追溯。<br>
-      筹备答辩素材，把复杂的算法流程拆成三张图一段故事。<br>
+     </p>
+    </div>
+   </div>
+   <div class="card">
+    <h2>
+     <span class="lang-en">
+      Core Skills
+     </span>
+     <span class="lang-zh">
+      专业技能
+     </span>
+    </h2>
+    <div class="lang-en">
+     <ul>
+      <li>
+       <strong>
+        Interaction prototyping:
+       </strong>
+       Validate recommendation layouts quickly in Figma or on a whiteboard.
+      </li>
+      <li>
+       <strong>
+        Front-end integration:
+       </strong>
+       Maintain the `intro/about` and homepage assets so paths, fonts, and build scripts stay aligned.
+      </li>
+      <li>
+       <strong>
+        Progress tracking:
+       </strong>
+       Drive the Notion kanban to mirror every scoring script&rsquo;s test status and chase missing logs on time.
+      </li>
+      <li>
+       <strong>
+        Data literacy:
+       </strong>
+       Translate model metrics into language such as "recommendations are getting sharper."
+      </li>
+     </ul>
+    </div>
+    <div class="lang-zh">
+     <p>
+      精通
+      <b>
+       交互原型
+      </b>
+      ：用 Figma 和白板快速验证推荐界面。
+      <br/>
+      熟悉
+      <b>
+       前端集成
+      </b>
+      ：维护 `intro/about` 与主页静态资源，确保路径、字体和构建脚本一致。
+      <br/>
+      擅长
+      <b>
+       进度跟踪
+      </b>
+      ：用 Notion 看板同步每个评分脚本的测试状态，及时提醒补齐日志。
+      <br/>
+      具备
+      <b>
+       数据素养
+      </b>
+      ：能读懂队友的模型指标，并把召回率翻译成&ldquo;推荐更准&rdquo;这种语言。
+     </p>
+    </div>
+   </div>
+   <div class="card">
+    <h2>
+     <span class="lang-en">
+      Project Contributions
+     </span>
+     <span class="lang-zh">
+      项目贡献
+     </span>
+    </h2>
+    <div class="lang-en">
+     <ul>
+      <li>
+       Built the static landing site and reporting pages, and curated the navigation plus color system.
+      </li>
+      <li>
+       Standardised data-file naming so everything in
+       <code>
+        reports/
+       </code>
+       remains traceable.
+      </li>
+      <li>
+       Prepared presentation assets by breaking complex algorithm flows into three diagrams and one story.
+      </li>
+      <li>
+       Jumped on environment failures immediately to pair-debug with engineers until the demo ran.
+      </li>
+     </ul>
+    </div>
+    <div class="lang-zh">
+     <p>
+      负责静态官网和汇报页面搭建，整理项目导航与配色体系。
+      <br/>
+      统一数据文件命名规范，推动 `reports/` 目录保持可追溯。
+      <br/>
+      筹备答辩素材，把复杂的算法流程拆成三张图一段故事。
+      <br/>
       当环境报错时第一时间顶上，和技术同学 pair debugging，直到 Demo 能跑。
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>个人特色</h2>
-    <p>
-      <b>用户视角</b>：喜欢站在观影者角度评估推荐理由。<br>
-      <b>灵感收集</b>：沉迷逛流媒体 App，总结值得借鉴的交互动效。<br>
-      <b>抗压属性</b>：冲刺周常驻夜班，第二天还能笑着讲进度。<br>
-      <b>隐藏技能</b>：能在会议上三分钟把散乱的需求变成行动清单。
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>成长经历</h2>
-    <p>
+     </p>
+    </div>
+   </div>
+   <div class="card">
+    <h2>
+     <span class="lang-en">
+      Personal Traits
+     </span>
+     <span class="lang-zh">
+      个人特色
+     </span>
+    </h2>
+    <div class="lang-en">
+     <ul>
+      <li>
+       <strong>
+        User empathy:
+       </strong>
+       Evaluate each recommendation from a cinephile&rsquo;s perspective.
+      </li>
+      <li>
+       <strong>
+        Inspiration hunter:
+       </strong>
+       Dissects media apps and collects interaction ideas worth reusing.
+      </li>
+      <li>
+       <strong>
+        Resilient under pressure:
+       </strong>
+       Can pull late-night shifts and still brief progress with a smile the next morning.
+      </li>
+      <li>
+       <strong>
+        Hidden talent:
+       </strong>
+       Turns messy meeting notes into a clear action checklist within minutes.
+      </li>
+     </ul>
+    </div>
+    <div class="lang-zh">
+     <p>
+      <b>
+       用户视角
+      </b>
+      ：喜欢站在观影者角度评估推荐理由。
+      <br/>
+      <b>
+       灵感收集
+      </b>
+      ：沉迷逛流媒体 App，总结值得借鉴的交互动效。
+      <br/>
+      <b>
+       抗压属性
+      </b>
+      ：冲刺周常驻夜班，第二天还能笑着讲进度。
+      <br/>
+      <b>
+       隐藏技能
+      </b>
+      ：能在会议上三分钟把散乱的需求变成行动清单。
+     </p>
+    </div>
+   </div>
+   <div class="card">
+    <h2>
+     <span class="lang-en">
+      Growth Journey
+     </span>
+     <span class="lang-zh">
+      成长经历
+     </span>
+    </h2>
+    <div class="lang-en">
+     <p>
+      Started by simply pushing CSV files into a web page, and can now assemble a full showcase site. Learned to collaborate across algorithm, data, and design roles. Next milestone: finish a front-end testing routine so every go-live lands on a predictable cadence.
+     </p>
+    </div>
+    <div class="lang-zh">
+     <p>
       从第一次把 CSV 塞进网页，到现在能搭起完整的展示站点；也学会了和算法、数据、设计多角色合作。下一步准备补完前端测试体系，把每次上线都控制在可预期的节奏里。
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>未来目标</h2>
-    <p>
-      想把这个推荐系统包装成可复用的产品模板，让更多团队能用一套流程完成数据→模型→展示的闭环，同时把用户反馈接入数据管线，形成真正的“以观众为中心”。
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>座右铭</h2>
-    <p>
-      “交付要写在日历上，体验要放进用户心里。”
-      ——以及：“文档写完，项目才算上线。”
-    </p>
-  </div>
-    <div class="card">
-    <h2>联系方式</h2>
-    <p>
+     </p>
+    </div>
+   </div>
+   <div class="card">
+    <h2>
+     <span class="lang-en">
+      Future Goals
+     </span>
+     <span class="lang-zh">
+      未来目标
+     </span>
+    </h2>
+    <div class="lang-en">
+     <p>
+      Plan to package the recommendation system into a reusable product template, giving other teams a repeatable data &rarr; model &rarr; presentation pipeline. Will also route user feedback back into the data stack to build a truly audience-centered loop.
+     </p>
+    </div>
+    <div class="lang-zh">
+     <p>
+      想把这个推荐系统包装成可复用的产品模板，让更多团队能用一套流程完成数据&rarr;模型&rarr;展示的闭环，同时把用户反馈接入数据管线，形成真正的&ldquo;以观众为中心&rdquo;。
+     </p>
+    </div>
+   </div>
+   <div class="card">
+    <h2>
+     <span class="lang-en">
+      Motto
+     </span>
+     <span class="lang-zh">
+      座右铭
+     </span>
+    </h2>
+    <div class="lang-en">
+     <blockquote>
+      <p>
+       &ldquo;Ship dates belong on the calendar; experiences belong in users&rsquo; hearts.&rdquo;
+      </p>
+      <p>
+       &ldquo;A project only launches once the documentation is finished.&rdquo;
+      </p>
+     </blockquote>
+    </div>
+    <div class="lang-zh">
+     <p>
+      &ldquo;交付要写在日历上，体验要放进用户心里。&rdquo;
+      &mdash;&mdash;以及：&ldquo;文档写完，项目才算上线。&rdquo;
+     </p>
+    </div>
+   </div>
+   <div class="card">
+    <h2>
+     <span class="lang-en">
+      Contact
+     </span>
+     <span class="lang-zh">
+      联系方式
+     </span>
+    </h2>
+    <div class="lang-en">
+     <p>
+      Email:
+      <a href="mailto:shuangboxu2@gmail.com">
+       shuangboxu2@gmail.com
+      </a>
+     </p>
+    </div>
+    <div class="lang-zh">
+     <p>
       shuangboxu2@gmail.com
-    </p>
+     </p>
+    </div>
+   </div>
   </div>
-
-
-</div>
-
-
-    <!-- 彩蛋按钮 -->
-    <button class="easter" onclick="showTruth()">点我查看隐藏真相</button>
-  </div>
-
+  <!-- 彩蛋按钮 -->
+  <button class="easter" onclick="showTruth()">
+   <span class="lang-en">
+    Reveal the easter egg
+   </span>
+   <span class="lang-zh">
+    点我查看隐藏真相
+   </span>
+  </button>
   <script>
-    function showTruth() {
+   function showTruth() {
       alert("隐藏真相：其实我只是把 Notion 待办贴满的产品狗 🤣");
       // 小彩带特效
       for (let i = 0; i < 20; i++) {
@@ -264,11 +510,11 @@
       }
     }
   </script>
-
   <!-- 背景音乐 -->
-  <audio id="bgm" src="../musics/Lily's Theme.flac" autoplay loop muted></audio>
+  <audio autoplay="" id="bgm" loop="" muted="" src="../musics/Lily's Theme.flac">
+  </audio>
   <script>
-    // 等待页面加载后尝试解除静音播放
+   // 等待页面加载后尝试解除静音播放
     window.addEventListener("load", function () {
       const audio = document.getElementById("bgm");
       // 延时解除静音，确保浏览器允许
@@ -280,8 +526,8 @@
       }, 500);
     });
   </script>
-<script>
-  function createSnow() {
+  <script>
+   function createSnow() {
     const snow = document.createElement("div");
     snow.innerText = "❄";
     snow.style.position = "fixed";
@@ -321,10 +567,9 @@
 
   // 每150ms生成一片雪
   setInterval(createSnow, 150);
-</script>
-
-<style>
-  .star {
+  </script>
+  <style>
+   .star {
     position: fixed;
     background: white;
     border-radius: 50%;
@@ -339,10 +584,9 @@
     from { opacity: 0.3; transform: scale(0.8); }
     to   { opacity: 1; transform: scale(1.2); }
   }
-</style>
-
-<script>
-  function createStars(count = 40) {
+  </style>
+  <script>
+   function createStars(count = 40) {
     for (let i = 0; i < count; i++) {
       const star = document.createElement("div");
       star.classList.add("star");
@@ -370,8 +614,6 @@
   window.onload = () => {
     createStars(60); // 默认 60 颗
   };
-</script>
-
-
-</body>
+  </script>
+ </body>
 </html>

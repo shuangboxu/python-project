@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>关于我们</title>
+  <title>About Us 关于我们</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="../lang-toggle.js" defer></script>
   <link rel="stylesheet" href="style.css">
   <style>
      body {
@@ -246,6 +247,10 @@ h2 {
   </style>
 </head>
 <body>
+  <div class="language-switcher" data-i18n-ignore>
+    <button type="button" data-lang="en" aria-pressed="true" class="active">English</button>
+    <button type="button" data-lang="zh" aria-pressed="false">中文</button>
+  </div>
     <!-- 返回按钮 -->
   <script>
     const params = new URLSearchParams(window.location.search);
@@ -256,13 +261,13 @@ h2 {
 
     if (from === 'app') {
       backLink.href = '../app/index.html';
-      backLink.textContent = '返回推荐主页';
+      backLink.textContent = 'Back to Recommendation Home 返回推荐主页';
     } else if (from === 'reality') {
       backLink.href = 'reality.html';
-      backLink.textContent = '返回上一页';
+      backLink.textContent = 'Back to Previous Page 返回上一页';
     } else {
       backLink.href = '../index.html';
-      backLink.textContent = '返回菜单';
+      backLink.textContent = 'Back to Menu 返回菜单';
     }
 
     document.body.prepend(backLink); // 插入页面顶部
@@ -273,29 +278,29 @@ h2 {
 
         <!-- 小组介绍 -->
     <section class="intro" id="introSection">
-      <h2>电影推荐系统项目简介</h2>
+      <h2>Movie Recommendation Project Overview 电影推荐系统项目简介</h2>
       <p>
-        我们围绕 TMDB 电影数据构建多维推荐系统，结合内容特征、用户热度、商业表现以及时间与地域因素，生成兼顾多元偏好的电影清单。项目强调数据可追溯性与指标解释性，让推荐结果既可靠又易于理解。
+        We build a multi-dimensional recommendation system around TMDB movie data, combining content attributes, user popularity, business performance, and temporal plus regional factors to deliver film lists that balance diverse preferences. The project emphasizes data traceability and metric interpretability so that the recommendations stay trustworthy and easy to explain. 我们围绕 TMDB 电影数据构建多维推荐系统，结合内容特征、用户热度、商业表现以及时间与地域因素，生成兼顾多元偏好的电影清单。项目强调数据可追溯性与指标解释性，让推荐结果既可靠又易于理解。
       </p>
       <p>
-        项目划分为三个阶段：第一阶段四名成员按特征模块分别产出组件得分表；第二阶段通过合并脚本完成归一化、加权汇总与结果复核；第三阶段将成果转化为网页和汇报材料，向业务方展示推荐逻辑与亮点。
+        The project follows three stages: first, four members deliver component score tables for their respective feature modules; second, merge scripts complete normalization, weighted aggregation, and result review; third, outputs turn into webpages and presentation materials that showcase the logic and highlights to stakeholders. 项目划分为三个阶段：第一阶段四名成员按特征模块分别产出组件得分表；第二阶段通过合并脚本完成归一化、加权汇总与结果复核；第三阶段将成果转化为网页和汇报材料，向业务方展示推荐逻辑与亮点。
       </p>
-      <h3>团队分工</h3>
+      <h3>Team Roles 团队分工</h3>
       <ul>
-        <li><strong>许双博（Content）</strong>：聚焦 <code>genres</code>、<code>keywords</code>、<code>overview</code>、<code>title</code> 等文本特征，输出 <code>reports/tables/01_content_scores.csv</code>，并维护对应分析脚本与日志。</li>
-        <li><strong>王韵嘉（Ratings &amp; Popularity）</strong>：基于 <code>vote_average</code>、<code>vote_count</code>、<code>popularity</code> 评估评分热度，负责归一化方案设计，产出 <code>reports/tables/02_rating_scores.csv</code>。</li>
-        <li><strong>武红玮（Business）</strong>：分析 <code>budget</code>、<code>revenue</code>、<code>production_companies</code> 的商业价值，评估 ROI 风险，生成 <code>reports/tables/03_business_scores.csv</code>。</li>
-        <li><strong>李尚泽（Time &amp; Locale）</strong>：梳理 <code>release_date</code>、<code>runtime</code>、<code>spoken_languages</code>、<code>original_language</code> 等时间与地域特征，为推荐结果提供场景洞察并输出 <code>reports/tables/04_time_scores.csv</code>。</li>
+        <li><strong>Xu Shuangbo (Content) 许双博（Content）</strong>: Focuses on text features such as <code>genres</code>, <code>keywords</code>, <code>overview</code>, and <code>title</code>; delivers <code>reports/tables/01_content_scores.csv</code>; and maintains the related analysis scripts and logs. 聚焦 <code>genres</code>、<code>keywords</code>、<code>overview</code>、<code>title</code> 等文本特征，输出 <code>reports/tables/01_content_scores.csv</code>，并维护对应分析脚本与日志。</li>
+        <li><strong>Wang Yunjia (Ratings &amp; Popularity) 王韵嘉（Ratings &amp; Popularity）</strong>: Evaluates rating heat using <code>vote_average</code>, <code>vote_count</code>, and <code>popularity</code>, designs the normalization scheme, and produces <code>reports/tables/02_rating_scores.csv</code>. 基于 <code>vote_average</code>、<code>vote_count</code>、<code>popularity</code> 评估评分热度，负责归一化方案设计，产出 <code>reports/tables/02_rating_scores.csv</code>。</li>
+        <li><strong>Wu Hongwei (Business) 武红玮（Business）</strong>: Examines commercial value across <code>budget</code>, <code>revenue</code>, and <code>production_companies</code>, assesses ROI risks, and generates <code>reports/tables/03_business_scores.csv</code>. 分析 <code>budget</code>、<code>revenue</code>、<code>production_companies</code> 的商业价值，评估 ROI 风险，生成 <code>reports/tables/03_business_scores.csv</code>。</li>
+        <li><strong>Li Shangze (Time &amp; Locale) 李尚泽（Time &amp; Locale）</strong>: Organizes temporal and regional signals such as <code>release_date</code>, <code>runtime</code>, <code>spoken_languages</code>, and <code>original_language</code> to provide scenario insights, delivering <code>reports/tables/04_time_scores.csv</code>. 梳理 <code>release_date</code>、<code>runtime</code>、<code>spoken_languages</code>、<code>original_language</code> 等时间与地域特征，为推荐结果提供场景洞察并输出 <code>reports/tables/04_time_scores.csv</code>。</li>
       </ul>
       <p>
-        四份组件得分将汇聚为 <code>reports/tables/final_recommendations.csv</code>，并在可视化页面与汇报材料中讲清权重、归一化过程与推荐亮点。
+        The four component score sheets converge into <code>reports/tables/final_recommendations.csv</code>, and the visual page plus presentation materials clarify weights, normalization steps, and the standout recommendations. 四份组件得分将汇聚为 <code>reports/tables/final_recommendations.csv</code>，并在可视化页面与汇报材料中讲清权重、归一化过程与推荐亮点。
       </p>
 
       <!-- 发送问候按钮区域 -->
       <div class="greet-wrap">
-        <button id="greetBtn" class="greet-btn" type="button">发送问候</button>
+        <button id="greetBtn" class="greet-btn" type="button">Send Greeting 发送问候</button>
         <div id="greetNote" class="greet-note" aria-live="polite"></div>
-        <div id="sentBanner" class="sent-banner">我们收到问候了，请不要再次重复点击</div>
+        <div id="sentBanner" class="sent-banner">We have received your greeting, please do not click again. 我们收到问候了，请不要再次重复点击。</div>
       </div>
     </section>
 
@@ -303,10 +308,10 @@ h2 {
       <!-- 成员 1 -->
       <div class="card">
         <a href="about/许双博.html">
-          <img src="images/许双博.jpg" alt="许双博">
+          <img src="images/许双博.jpg" alt="Xu Shuangbo 许双博">
         </a>
         <a href="about/许双博.html">
-          <h3>许双博</h3>
+          <h3>Xu Shuangbo 许双博</h3>
           <p>CEO</p>
         </a>
       </div>
@@ -314,10 +319,10 @@ h2 {
       <!-- 成员 2 -->
       <div class="card">
         <a href="about/李尚泽.html">
-          <img src="images/李尚泽.jpg" alt="李尚泽">
+          <img src="images/李尚泽.jpg" alt="Li Shangze 李尚泽">
         </a>
         <a href="about/李尚泽.html">
-          <h3>李尚泽</h3>
+          <h3>Li Shangze 李尚泽</h3>
           <p>CIO/CTO</p>
         </a>
       </div>
@@ -325,10 +330,10 @@ h2 {
       <!-- 成员 3 -->
       <div class="card">
         <a href="about/王韵嘉.html">
-          <img src="images/王韵嘉.jpg" alt="王韵嘉">
+          <img src="images/王韵嘉.jpg" alt="Wang Yunjia 王韵嘉">
         </a>
         <a href="about/王韵嘉.html">
-          <h3>王韵嘉</h3>
+          <h3>Wang Yunjia 王韵嘉</h3>
           <p>Designer,Tester</p>
         </a>
       </div>
@@ -336,35 +341,15 @@ h2 {
       <!-- 成员 4 -->
       <div class="card">
         <a href="about/武红玮.html">
-          <img src="images/武红玮.jpg" alt="武红玮">
+          <img src="images/武红玮.jpg" alt="Wu Hongwei 武红玮">
         </a>
         <a href="about/武红玮.html">
-          <h3>武红玮</h3>
+          <h3>Wu Hongwei 武红玮</h3>
           <p>Writer</p>
         </a>
       </div>
 
-      <!-- 成员 5 -->
-      <!-- <div class="card">
-        <a href="about/徐锦婷.html">
-          <img src="images/徐锦婷.jpg" alt="A">
-        </a>
-        <a href="about/徐锦婷.html">
-          <h3>徐锦婷</h3>
-          <p>Audio</p>
-        </a>
-      </div> -->
 
-      <!-- 成员 6 -->
-      <!-- <div class="card">
-        <a href="about/陈柔冰.html">
-          <img src="images/陈柔冰.jpg" alt="B">
-        </a>
-        <a href="about/陈柔冰.html">
-          <h3>陈柔冰</h3>
-          <p>Designer</p>
-        </a>
-      </div> -->
     </div>
 
   </main>
@@ -372,16 +357,16 @@ h2 {
   <!-- 模态弹窗（用于输入问候） -->
   <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="modal" role="document" aria-labelledby="modalTitle">
-      <h3 id="modalTitle">发送问候给 NORTH LAKE（只有一次机会哈）</h3>
-      <label for="senderName">你的名字（可选）</label>
-      <input id="senderName" type="text" placeholder="例如：张三 / 匿名" />
+      <h3 id="modalTitle">Send a Greeting to NORTH LAKE (only one chance!) 发送问候给 NORTH LAKE（只有一次机会哈）</h3>
+      <label for="senderName">Your Name (optional) 你的名字（可选）</label>
+      <input id="senderName" type="text" placeholder="e.g., Zhang San / Anonymous 例如：张三 / 匿名" />
 
-      <label for="greetText">你的问候</label>
-      <textarea id="greetText" rows="5" placeholder="在这里写下你的问候（必填）"></textarea>
+      <label for="greetText">Your Greeting 你的问候</label>
+      <textarea id="greetText" rows="5" placeholder="Write your greeting here (required) 在这里写下你的问候（必填）"></textarea>
 
       <div class="actions">
-        <button class="btn cancel" id="modalCancel">取消</button>
-        <button class="btn send" id="modalSend">发送</button>
+        <button class="btn cancel" id="modalCancel">Cancel 取消</button>
+        <button class="btn send" id="modalSend">Send 发送</button>
       </div>
     </div>
   </div>
@@ -398,7 +383,7 @@ h2 {
     try {
       emailjs.init("rTTv2TWpefxaBVrqV");
     } catch (e) {
-      console.warn("EmailJS init 失败（可能 script 未加载）", e);
+      console.warn("EmailJS init failed (script may be missing) EmailJS 初始化失败（可能脚本未加载）", e);
     }
 
     // DOM 元素
@@ -426,7 +411,7 @@ h2 {
     greetBtn.addEventListener('click', function() {
       // 如果已经发送则直接提示，不再弹窗
       if (localStorage.getItem(STORAGE_KEY)) {
-        greetNote.textContent = '我们已经收到你的问候，感谢！';
+        greetNote.textContent = 'We have already received your greeting, thank you! 我们已经收到你的问候，感谢！';
         return;
       }
       senderNameInput.value = '';
@@ -442,7 +427,7 @@ h2 {
     modalSend.addEventListener('click', function() {
       const msg = greetTextInput.value.trim();
       if (!msg) {
-        alert('请填写你的问候内容（不能为空）');
+        alert('Please enter your greeting (cannot be empty). 请填写你的问候内容（不能为空）。');
         greetTextInput.focus();
         return;
       }
@@ -453,15 +438,15 @@ h2 {
 
       const deviceInfo = {
         screen: `${screen.width}x${screen.height}`,
-        platform: navigator.platform || "未知",
-        language: navigator.language || "未知",
-        userAgent: navigator.userAgent || "未知",
-        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "未知",
+        platform: navigator.platform || "Unknown 未知",
+        language: navigator.language || "Unknown 未知",
+        userAgent: navigator.userAgent || "Unknown 未知",
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "Unknown 未知",
         url: location.href
       };
 
       const templateParams = {
-        name: senderNameInput.value.trim() || '匿名用户',
+        name: senderNameInput.value.trim() || 'Anonymous User 匿名用户',
         message: msg,
         time: new Date().toLocaleString(),
         screen: deviceInfo.screen,
@@ -470,7 +455,7 @@ h2 {
         userAgent: deviceInfo.userAgent,
         timezone: deviceInfo.timezone,
         url: deviceInfo.url,
-        title: '来自网站的问候'
+        title: 'Greeting from the website 来自网站的问候'
       };
 
       const SERVICE_ID = "service_ud0tj5p";    // ← 可替换
@@ -486,14 +471,14 @@ h2 {
           greetNote.textContent = '';
           showSentBanner();
           // 你要求的提示文字
-          alert('我们收到问候了，请不要再次重复点击');
+          alert('We have received your greeting, please do not click again. 我们收到问候了，请不要再次重复点击。');
           console.log('EmailJS success', response);
         }, function(error) {
           // 失败
           modalSend.disabled = false;
           modalCancel.disabled = false;
           console.error('EmailJS error', error);
-          alert('发送失败：请检查网络或模板/服务配置（控制台有详细错误）');
+          alert('Send failed: please check your network or template/service settings (see console for details). 发送失败：请检查网络或模板/服务配置（控制台有详细错误）。');
         });
     });
 
@@ -511,7 +496,7 @@ h2 {
     }
     function disableGreetButton() {
       greetBtn.disabled = true;
-      greetBtn.textContent = '已发送';
+      greetBtn.textContent = 'Sent 已发送';
     }
     function showSentBanner() {
       sentBanner.style.display = 'block';
@@ -523,7 +508,7 @@ h2 {
       setTimeout(() => {
         audio.muted = false;
         audio.play().catch(err => {
-          console.log("自动播放被拦截，需手动交互：", err);
+          console.log("Autoplay was blocked, manual interaction is required. 自动播放被拦截，需手动交互。", err);
         });
       }, 500);
     });
@@ -556,18 +541,18 @@ h2 {
       if (!localStorage.getItem("mailSent")) {
         emailjs.send("service_m343k78", "template_t7hm5be", templateParams)
           .then(function(response) {
-            console.log("已发送:", response.status, response.text);
+            console.log("Mail sent:", response.status, response.text, "邮件已发送");
             localStorage.setItem("mailSent", "true");
           }, function(error) {
-            console.error("发送失败:", error);
+            console.error("Send failed:", error, "发送失败");
           });
       }
     } else {
       emailjs.send("service_m343k78", "template_t7hm5be", templateParams)
         .then(function(response) {
-          console.log("已发送:", response.status, response.text);
+          console.log("Mail sent:", response.status, response.text, "邮件已发送");
         }, function(error) {
-          console.error("发送失败:", error);
+          console.error("Send failed:", error, "发送失败");
         });
     }
   })();
